@@ -55,6 +55,7 @@ import {
   certifications,
   type Project,
 } from "@/data/portfolio-data"
+import {useRouter} from "next/navigation"
 
 const getSkillIcon = (iconName: string) => {
   const icons: { [key: string]: any } = {
@@ -99,9 +100,7 @@ export default function Portfolio() {
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   const featuredProjects = projects.filter((project) => project.featured)
-
-  const [showAllProjects, setShowAllProjects] = useState(false)
-  const projectsToShow = showAllProjects ? featuredProjects : featuredProjects.slice(0, 6)
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -573,7 +572,7 @@ export default function Portfolio() {
               Published Applications
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projectsToShow.map((project, index) => (
+              {(featuredProjects.slice(0,6)).map((project, index) => (
                 <Card
                   key={index}
                   className="group relative overflow-hidden bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
@@ -697,18 +696,11 @@ export default function Portfolio() {
               <div className="flex justify-center mt-8">
                 <Button
                   onClick={() => {
-                    if (showAllProjects) {
-                      setShowAllProjects(false)
-                      setTimeout(() => {
-                        scrollToSection("projects")
-                      }, 100)
-                    } else {
-                      setShowAllProjects(true)
-                    }
+                    router.push("/projects")
                   }}
                   className="px-6 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg hover:scale-105 transition-all"
                 >
-                  {showAllProjects ? "Show Less" : "Show More"}
+                  Show More
                 </Button>
               </div>
             )}
