@@ -292,6 +292,66 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "hey_smarty",
+    name: "Hey Smarty",
+    description: "Your Personal Home Assistant",
+    longDescription: "Hey Smarty, your ultimate virtual assistant designed to transform how you manage your home. Whether you’re looking for the best tutors, schools, cable TV, internet services, or the latest smart home devices, Hey Smarty has you covered. Our AI-powered app is tailored to help you discover top-rated products and services that make your home smarter, more comfortable, and cost-effective. With Hey Smarty, you’ll save both time and money while enjoying a seamless experience in creating the perfect living space. Let Hey Smarty guide you to the best choices for a home you’ll love.",
+    tech: ["Flutter", "Dart", "Android", "iOS", "GIT", "Firebase", "OpenAI"],
+    platforms: ["Android", "iOS"],
+    type: "Assistant",
+    company: "Genetech Solutions",
+    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fhey_smarty.png?alt=media",
+    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fhey_smarty.jpg?alt=media",
+    storeLinks: [
+      {
+        platform: "Android",
+        url: "https://play.google.com/store/apps/details?id=com.smarty.app&utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
+        store: "Google Play",
+      },
+      {
+        platform: "iOS",
+        url: "https://apps.apple.com/us/app/heysmarty/id6651834814?utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
+        store: "App Store",
+      },
+    ],
+    screenshots: {
+      Android: [
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen1.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen2.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen3.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen4.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen5.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen6.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen7.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen8.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen9.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen10.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fheysmarty-screen11.jpg?alt=media",
+      ],
+      iOS: [
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen1.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen2.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen3.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen4.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen5.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen6.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen7.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen8.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen9.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen10.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fheysmarty-screen11.png?alt=media",
+      ],
+    },
+    createdDate: "Mar, 2024",
+    releasedDate: "Mar, 2024",
+    stats: {
+      downloads: "50+",
+      rating: 5,
+      reviews: "10+",
+    },
+    featured: false,
+  },
+  {
     id: "padzee",
     name: "Padzee - Online Clipboard",
     description: "Online portable clipboard to help you take notes on the go. No Login, No Hassle!",
@@ -550,6 +610,33 @@ export const projects: Project[] = [
     },
     createdDate: "Mar, 2023",
     releasedDate: "May, 2023",
+    featured: true,
+  },
+  
+  {
+    id: "electra",
+    name: "Electra",
+    description: "",
+    longDescription: "",
+    tech: ["Flutter", "Dart", "REST APIs", "Animation"],
+    platforms: ["Android", "iOS"],
+    company: "Freelance Client",
+    type: "Booking App",
+    projectIcon: "",
+    bannerImage: "",
+    storeLinks: [],
+    screenshots: {
+      iOS: [
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_1.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_2.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_3.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_4.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_5.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_6.jpg?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_7.jpg?alt=media",
+      ],
+    },
+    createdDate: "Oct, 2024",
     featured: true,
   },
   {
@@ -857,6 +944,22 @@ export const projects: Project[] = [
 ]
 
 export const openSourceProjects: OpenSourceProject[] = [
+  {
+    name: "Python Coding Challenges",
+    description:
+      "A collection of coding problems and solutions in Python, useful for interview preparation and problem-solving practice.",
+    url: "https://github.com/zeeshanayaz/python_coding_challenges",
+    type: "Python",
+    github: "https://github.com/zeeshanayaz/python_coding_challenges",
+  },
+  {
+    name: "Sequence - Board Game Prototype",
+    description:
+      "A flutter app MVP for Sequence Game.",
+    url: "https://github.com/zeeshanayaz/board_game_prototype",
+    type: "Flutter App",
+    github: "https://github.com/zeeshanayaz/board_game_prototype",
+  },
   {
     name: "Custom Accordion",
     description:
