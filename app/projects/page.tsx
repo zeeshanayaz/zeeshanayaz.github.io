@@ -25,7 +25,7 @@ export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedType, setSelectedType] = useState<string | null>(null)
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects)
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects.filter(p => p.featured))
   const [filteredOpenSource, setFilteredOpenSource] = useState(openSourceProjects)
 
   // Get unique project types and platforms for filters
@@ -34,11 +34,12 @@ export default function ProjectsPage() {
 
   // Filter projects based on search term and selected filters
   useEffect(() => {
-    let result = projects
+    let result = projects.filter(project => project.featured)
     
     if (searchTerm) {
       const term = searchTerm.toLowerCase()
-      result = result.filter(project => 
+      result = result.filter(project =>
+        project.featured && 
         project.name.toLowerCase().includes(term) || 
         project.description.toLowerCase().includes(term) ||
         project.company.toLowerCase().includes(term) ||
@@ -47,11 +48,11 @@ export default function ProjectsPage() {
     }
     
     if (selectedType) {
-      result = result.filter(project => project.type === selectedType)
+      result = result.filter(project => project.featured && project.type === selectedType)
     }
     
     if (selectedPlatform) {
-      result = result.filter(project => project.platforms.includes(selectedPlatform))
+      result = result.filter(project => project.featured && project.platforms.includes(selectedPlatform))
     }
     
     setFilteredProjects(result)
