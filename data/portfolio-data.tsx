@@ -549,7 +549,7 @@ export const projects: Project[] = [
         store: "App Store",
       },
     ],
-    type: "E-commerce App",
+    type: "E-Commerce",
     projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fnutriwest.png?alt=media",
     bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fnutriwest.webp?alt=media",
     screenshots: {
@@ -623,7 +623,7 @@ export const projects: Project[] = [
     company: "Freelance Client",
     type: "Booking App",
     projectIcon: "",
-    bannerImage: "",
+    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_4.jpg?alt=media",
     storeLinks: [],
     screenshots: {
       iOS: [
@@ -647,7 +647,7 @@ export const projects: Project[] = [
     tech: ["Flutter", "Dart", "REST APIs", "Animation", "Games"],
     platforms: ["Android", "iOS"],
     company: "Freelance Client",
-    type: "Educational App",
+    type: "Education",
     projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fthaqalayn_kids.png?alt=media",
     bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fthaqalayn_kids.png?alt=media",
     storeLinks: [
@@ -870,7 +870,7 @@ export const projects: Project[] = [
     projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Frazpay_wallet.png?alt=media",
     storeLinks: [],
     github: "https://github.com/zeeshanayaz/razpay-wallet-app?utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
-    type: "E-Commerce",
+    type: "Digital Wallet",
     screenshots: {
       Android: [
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Frazpay_1.png?alt=media",
@@ -998,7 +998,7 @@ export const education: Education[] = [
 ]
 
 export const achievementsData = [
-  "Launched 15+ apps with 4+ average rating on both app stores",
+  `Launched ${projects.length}+ apps with 4+ average rating on both app stores`,
   "Expert in both Android and iOS development",
   "Proficient in multiple programming languages and frameworks",
   "Reduced post-release bugs by 50% through unit and manual testing",
@@ -1054,9 +1054,9 @@ export const services: Service[] = [
 
 export const achievements: Achievement[] = [
   {
-    title: "15+ Apps Published",
+    title: `${projects.length}+ Apps Published`,
     description:
-      "Successfully launched and published over 15 mobile applications on both Google Play Store and Apple App Store",
+      `Successfully launched and published over ${projects.length} mobile applications on both Google Play Store and Apple App Store`,
     icon: "Trophy",
   },
   {
