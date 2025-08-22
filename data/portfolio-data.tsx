@@ -201,6 +201,35 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    id: "serpent-tales",
+    name: "Serpent Tales",
+    description: "Relive the classic snake fun! Eat, grow, and survive in Serpent Tales.",
+    longDescription: "Serpent Tales – Classic Snake Game Reimagined! 🐍\nGet ready to relive the timeless fun of the legendary Snake game, now brought to life with a fresh twist in Serpent Tales. Simple, addictive, and endlessly entertaining – it’s the perfect casual game to play anytime, anywhere!\\nn🎮 How to Play\nControl your serpent to eat food and grow longer.\nAvoid crashing into walls or your own tail.\nChallenge yourself to beat your high score.\n\n🌟 Features\n✅ Classic Gameplay – Experience the retro snake mechanics you know and love.\n✅ Modern Design – Clean, smooth graphics for a refreshing experience.\n✅ Easy Controls – Simple swipe/tap controls for smooth gameplay.\n✅ Offline Play – No internet required – enjoy anytime, anywhere.\n✅ Lightweight – Small in size, fast, and battery-friendly.\n\n🐍 Why You’ll Love Serpent Tales\nPerfect for quick breaks or long play sessions.\nFun for all ages – kids and adults alike.\nCompete with yourself to set higher scores.\nNostalgic yet modern – a true classic reimagined.\n\nWhether you’re a fan of old-school mobile games or just looking for a fun way to pass the time, Serpent Tales is the ultimate arcade experience. Easy to learn, but hard to master – how long can you survive?\n\n👉 Download Serpent Tales – Classic Snake Game today and start your slithering adventure!",
+    tech: ["Flutter", "Dart", "Firebase", "Game", "Arcade", "Snake"],
+    platforms: ["Android", "iOS"],
+    company: "Personal Project",
+    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fserpent_tales.png?alt=media",
+    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fserpent_tales.png?alt=media",
+    storeLinks: [
+      {
+        platform: "Android",
+        url: "https://play.google.com/store/apps/details?id=com.game.serpent&utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
+        store: "Google Play",
+      }
+    ],
+    type: "Game", 
+    screenshots: {
+      Android: [
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_1.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_2.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_3.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_4.png?alt=media",
+      ]
+    },
+    createdDate: "2025",
+    featured: true,
+  },
+  {
     id: "empire-developments",
     name: "Empire Developments",
     description: "Where Uniqueness Redefines Luxurious Living",
