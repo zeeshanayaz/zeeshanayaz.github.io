@@ -29,23 +29,23 @@ export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
       <div className="sticky top-0 z-10 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 py-4 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center">
-            <Link 
-                href="/" 
-                className="flex items-center text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
-              >
-                <span className="font-medium">Home</span>
-              </Link>
-              <ChevronRight className="h-4 w-4 mx-2 text-slate-400" />
-              <Link 
-                href="/projects" 
-                className="flex items-center text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
-              >
-                <span className="font-medium">Projects</span>
-              </Link>
-              <ChevronRight className="h-4 w-4 mx-2 text-slate-400" />
-              <span className="font-medium text-slate-900 dark:text-white truncate max-w-[200px] sm:max-w-xs">
-                {project.name}
-              </span>
+            <Link
+              href="/"
+              className="flex items-center text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
+            >
+              <span className="font-medium">Home</span>
+            </Link>
+            <ChevronRight className="h-4 w-4 mx-2 text-slate-400" />
+            <Link
+              href="/projects"
+              className="flex items-center text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
+            >
+              <span className="font-medium">Projects</span>
+            </Link>
+            <ChevronRight className="h-4 w-4 mx-2 text-slate-400" />
+            <span className="font-medium text-slate-900 dark:text-white truncate max-w-[200px] sm:max-w-xs">
+              {project.name}
+            </span>
           </div>
         </div>
       </div>
@@ -213,7 +213,12 @@ export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
                     <Award className="w-6 h-6 mr-3 text-blue-500" />
                     About the App
                   </h2>
-                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{project.longDescription}</p>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{project.longDescription.split('\n').map((line, idx) => (
+                    <span key={idx}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}</p>
                 </CardContent>
               </Card>
 
