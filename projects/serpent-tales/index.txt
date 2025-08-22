@@ -1,0 +1,39 @@
+1:"$Sreact.fragment"
+2:I[9304,["177","static/chunks/app/layout-783e11d3b9222596.js"],"ThemeProvider"]
+3:I[7555,[],""]
+4:I[1295,[],""]
+6:I[9665,[],"OutletBoundary"]
+9:I[9665,[],"ViewportBoundary"]
+b:I[9665,[],"MetadataBoundary"]
+d:I[6614,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/931b179cff3131dc.css","style"]
+:HL["/_next/static/css/223d982dec82b6f9.css","style"]
+0:{"P":null,"b":"dB6p61bUkiTC6ue5n97-d","p":"","c":["","projects","serpent-tales",""],"i":false,"f":[[["",{"children":["projects",{"children":[["slug","serpent-tales","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/931b179cff3131dc.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/223d982dec82b6f9.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"__className_e8ce0c","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":["projects",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","serpent-tales","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5","$undefined",null,["$","$L6",null,{"children":["$L7","$L8",null]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","VOzenkercofcIveODvFdm",{"children":[["$","$L9",null,{"children":"$La"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Lb",null,{"children":"$Lc"}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+e:I[1088,["462","static/chunks/462-18ad5d832fa9bddb.js","419","static/chunks/app/projects/%5Bslug%5D/page-2072640cd00c7e72.js"],"ProjectDetailClient"]
+f:T543,Serpent Tales – Classic Snake Game Reimagined! 🐍
+Get ready to relive the timeless fun of the legendary Snake game, now brought to life with a fresh twist in Serpent Tales. Simple, addictive, and endlessly entertaining – it’s the perfect casual game to play anytime, anywhere!\nn🎮 How to Play
+Control your serpent to eat food and grow longer.
+Avoid crashing into walls or your own tail.
+Challenge yourself to beat your high score.
+
+🌟 Features
+✅ Classic Gameplay – Experience the retro snake mechanics you know and love.
+✅ Modern Design – Clean, smooth graphics for a refreshing experience.
+✅ Easy Controls – Simple swipe/tap controls for smooth gameplay.
+✅ Offline Play – No internet required – enjoy anytime, anywhere.
+✅ Lightweight – Small in size, fast, and battery-friendly.
+
+🐍 Why You’ll Love Serpent Tales
+Perfect for quick breaks or long play sessions.
+Fun for all ages – kids and adults alike.
+Compete with yourself to set higher scores.
+Nostalgic yet modern – a true classic reimagined.
+
+Whether you’re a fan of old-school mobile games or just looking for a fun way to pass the time, Serpent Tales is the ultimate arcade experience. Easy to learn, but hard to master – how long can you survive?
+
+👉 Download Serpent Tales – Classic Snake Game today and start your slithering adventure!5:["$","$Le",null,{"project":{"id":"serpent-tales","name":"Serpent Tales","description":"Relive the classic snake fun! Eat, grow, and survive in Serpent Tales.","longDescription":"$f","tech":["Flutter","Dart","Firebase","Game","Arcade","Snake"],"platforms":["Android","iOS"],"company":"Personal Project","projectIcon":"https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fserpent_tales.png?alt=media","bannerImage":"https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fserpent_tales.png?alt=media","storeLinks":[{"platform":"Android","url":"https://play.google.com/store/apps/details?id=com.game.serpent&utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing","store":"Google Play"}],"type":"Game","screenshots":{"Android":["https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_1.png?alt=media","https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_2.png?alt=media","https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_3.png?alt=media","https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_4.png?alt=media"]},"createdDate":"2025","featured":true}}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+8:null
+c:[["$","title","0",{"children":"Serpent Tales - Muhammad Zeeshan Portfolio"}],["$","meta","1",{"name":"description","content":"Relive the classic snake fun! Eat, grow, and survive in Serpent Tales."}],["$","meta","2",{"name":"generator","content":"v0.dev"}]]
