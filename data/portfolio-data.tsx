@@ -113,7 +113,7 @@ export const personalInfo: PersonalInfo = {
   website: "https://zeeshan-ayaz.web.app/",
   linkedin: "https://www.linkedin.com/in/zeeshanayaz/",
   github: "https://github.com/zeeshanayaz",
-  profileImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/profile_picture.jpeg?alt=media",
+  profileImage: "/images/profile.jpeg",
 }
 
 export const skills: Skill[] = [
@@ -209,7 +209,7 @@ export const projects: Project[] = [
     platforms: ["Android"],
     company: "Personal Project",
     type: "Education",
-    projectIcon: "",
+    projectIcon: "/images/projects/asma_ul_husna/logo.png",
     storeLinks: [
       {
         platform: "Android",
@@ -219,8 +219,14 @@ export const projects: Project[] = [
     ],
     github: "",
     website: "",
-    bannerImage: "",
-    screenshots: {},
+    bannerImage: "/images/projects/asma_ul_husna/banner.png",
+    screenshots: {
+      Android: [
+        "/images/projects/asma_ul_husna/mockups/android/01.png",
+        "/images/projects/asma_ul_husna/mockups/android/02.png",
+        "/images/projects/asma_ul_husna/mockups/android/03.png",
+      ]
+    },
     createdDate: "February, 2026",
     releasedDate: "February, 2026",
     featured: true,
@@ -239,20 +245,20 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"],
     company: "Genetech Solutions",
     type: "Farming",
-    projectIcon: "",
+    projectIcon: "/images/projects/dayzee_consumer/logo.png",
     storeLinks: [],
     github: "",
     website: "",
-    bannerImage: "",
+    bannerImage: "/images/projects/dayzee_consumer/banner.png",
     screenshots: {},
     createdDate: "March, 2026",
     // releasedDate: "February, 2026",
-    featured: false,
-    stats: {
-      // downloads: "10+",
-      // rating: 5,
-      // reviews: "10+",
-    },
+    featured: true,
+    // stats: {
+    //   // downloads: "10+",
+    //   // rating: 5,
+    //   // reviews: "10+",
+    // },
   },
   {
     id: "dayzee_vendor",
@@ -263,20 +269,20 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"],
     company: "Genetech Solutions",
     type: "Farming",
-    projectIcon: "",
+    projectIcon: "/images/projects/dayzee_vendor/logo.png",
     storeLinks: [],
     github: "",
     website: "",
-    bannerImage: "",
+    bannerImage: "/images/projects/dayzee_vendor/banner.png",
     screenshots: {},
     createdDate: "March, 2026",
     // releasedDate: "February, 2026",
-    featured: false,
-    stats: {
-      // downloads: "10+",
-      // rating: 5,
-      // reviews: "10+",
-    },
+    featured: true,
+    // stats: {
+    //   // downloads: "10+",
+    //   // rating: 5,
+    //   // reviews: "10+",
+    // },
   },
   {
     id: "hujjah",
@@ -287,7 +293,7 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"],
     company: "Genetech Solutions",
     type: "ChatBot/Education",
-    projectIcon: "",
+    projectIcon: "/images/projects/hujjah/logo.png",
     storeLinks: [],
     github: "",
     website: "",
@@ -310,8 +316,8 @@ export const projects: Project[] = [
     tech: ["Flutter", "Dart", "Firebase", "Game", "Arcade", "Snake"],
     platforms: ["Android", "iOS"],
     company: "Personal Project",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fserpent_tales.png?alt=media",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fserpent_tales.png?alt=media",
+    projectIcon: "/images/projects/serpent_tales/logo.png",
+    bannerImage: "/images/projects/serpent_tales/banner.png",
     storeLinks: [
       {
         platform: "Android",
@@ -322,10 +328,10 @@ export const projects: Project[] = [
     type: "Game",
     screenshots: {
       Android: [
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_1.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_2.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_3.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fserpent_tales_4.png?alt=media",
+        "/images/projects/serpent_tales/mockups/android/01.png",
+        "/images/projects/serpent_tales/mockups/android/02.png",
+        "/images/projects/serpent_tales/mockups/android/03.png",
+        "/images/projects/serpent_tales/mockups/android/04.png",
       ]
     },
     createdDate: "2025",
