@@ -345,8 +345,8 @@ export const projects: Project[] = [
     tech: ["Kotlin", "XML", "REST APIs", "Firebase", "SqlLite", "Room"],
     platforms: ["Android", "iOS"],
     company: "Freelance Client",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fempire_developments.png?alt=media",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fempire_developments.jpg?alt=media",
+    projectIcon: "/images/projects/empire_development/logo.png",
+    bannerImage: "/images/projects/empire_development/banner.png",
     storeLinks: [],
     type: "Real Estate",
     screenshots: {},
@@ -362,7 +362,7 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"],
     type: "Feedback App",
     company: "Genetech Solutions",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Finterviewer_feedback_app.png?alt=media",
+    projectIcon: "/images/projects/interviewer_feedback_app/logo.png",
     bannerImage: "",
     storeLinks: [],
     screenshots: {
@@ -389,7 +389,7 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS", "Web"],
     type: "Portfolio",
     company: "Personal Project",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fportfolio_app.png?alt=media",
+    projectIcon: "/images/projects/portfolio_app/logo.png",
     bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fportfolio_app.png?alt=media",
     storeLinks: [
       {
@@ -498,7 +498,7 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS", "Web"],
     type: "Clipboard, Online Notepad",
     company: "Genetech Solutions",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fpadzee.png?alt=media",
+    projectIcon: "/images/projects/padzee/logo.png",
     storeLinks: [
       {
         platform: "Android",
@@ -516,19 +516,19 @@ export const projects: Project[] = [
         store: "Web",
       },
     ],
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fpadzee.png?alt=media",
+    bannerImage: "/images/projects/padzee/banner.png",
 
     screenshots: {
       Android: [
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_1.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_2.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_3.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_4.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_5.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_6.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_7.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_8.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fpadzee_9.png?alt=media",
+        "/images/projects/padzee/mockups/android/01.png",
+        "/images/projects/padzee/mockups/android/02.png",
+        "/images/projects/padzee/mockups/android/03.png",
+        "/images/projects/padzee/mockups/android/04.png",
+        "/images/projects/padzee/mockups/android/05.png",
+        "/images/projects/padzee/mockups/android/06.png",
+        "/images/projects/padzee/mockups/android/07.png",
+        "/images/projects/padzee/mockups/android/08.png",
+        "/images/projects/padzee/mockups/android/09.png",
       ],
       iOS: [
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fpadzee_1.jpg?alt=media",
@@ -561,7 +561,7 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"],
     type: "AI/Photo App",
     company: "Genetech Solutions",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fai_photobooth.png?alt=media",
+    projectIcon: "/images/projects/ai_photobooth/logo.png",
     bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fai_photobooth.png?alt=media",
     storeLinks: [],
     screenshots: {
@@ -590,8 +590,8 @@ export const projects: Project[] = [
     tech: ["Flutter", "Dart", "REST APIs", "Healthcare", "Pricing Engine"],
     platforms: ["Android", "iOS"],
     company: "Genetech Solutions",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2F340b_price_guide.png?alt=media",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2F340b.png?alt=media",
+    projectIcon: "/images/projects/340b_price_guide/logo.png",
+    bannerImage: "/images/projects/340b_price_guide/banner.png",
     storeLinks: [
       {
         platform: "Android",
@@ -607,15 +607,14 @@ export const projects: Project[] = [
     type: "Healthcare App",
     screenshots: {
       Android: [
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_1.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_2.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_3.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_4.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_5.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_6.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_7.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_8.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2F340b_9.png?alt=media",
+        "/images/projects/340b_price_guide/mockups/android/01.png",
+        "/images/projects/340b_price_guide/mockups/android/02.png",
+        "/images/projects/340b_price_guide/mockups/android/03.png",
+        "/images/projects/340b_price_guide/mockups/android/04.png",
+        "/images/projects/340b_price_guide/mockups/android/05.png",
+        "/images/projects/340b_price_guide/mockups/android/06.png",
+        "/images/projects/340b_price_guide/mockups/android/07.png",
+        "/images/projects/340b_price_guide/mockups/android/08.png",
       ],
     },
     createdDate: "Sep, 2023",
@@ -636,8 +635,8 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS", "Web"],
     type: "Clipboard, Online Notepad",
     company: "Personal Project",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fwrite.png?alt=media",
-    bannerImage: "https://lh3.googleusercontent.com/PFv3nC4ZBf4QKbQswnw7EFp9mxYMQRFb-VlDWGhgbMr6THMOFIb8KQJl0mhy1muFbuk",
+    projectIcon: "/images/projects/write/logo.png",
+    bannerImage: "/images/projects/write/banner.png",
     storeLinks: [
       {
         platform: "web",
@@ -687,19 +686,18 @@ export const projects: Project[] = [
       },
     ],
     type: "E-Commerce",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fnutriwest.png?alt=media",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fnutriwest.webp?alt=media",
+    projectIcon: "/images/projects/nutriwest/logo.png",
+    bannerImage: "/images/projects/nutriwest/banner.png",
     screenshots: {
       Android: [
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_1.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_2.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_3.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_4.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_5.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_6.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_7.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_8.png?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fnutriwest_9.png?alt=media",
+        "/images/projects/nutriwest/mockups/android/01.png",
+        "/images/projects/nutriwest/mockups/android/02.png",
+        "/images/projects/nutriwest/mockups/android/03.png",
+        "/images/projects/nutriwest/mockups/android/04.png",
+        "/images/projects/nutriwest/mockups/android/05.png",
+        "/images/projects/nutriwest/mockups/android/06.png",
+        "/images/projects/nutriwest/mockups/android/07.png",
+        "/images/projects/nutriwest/mockups/android/08.png",
       ],
       iOS: [
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Fnutriwest_1.png?alt=media",
@@ -726,7 +724,7 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"],
     company: "Genetech Solutions",
     type: "Review",
-    projectIcon: "",
+    projectIcon: "/images/projects/check_the_reviews/logo.png",
     storeLinks: [
       {
         platform: "Android",
@@ -761,8 +759,8 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"],
     company: "Genetech Solutions",
     type: "Logistics",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fbrokerware.png?alt=media",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fbrokerware.png?alt=media",
+    bannerImage: "/images/projects/brokerware/banner.png",
+    projectIcon: "/images/projects/brokerware/logo.png",
     storeLinks: [
       {
         platform: "Android",
@@ -820,7 +818,7 @@ export const projects: Project[] = [
     platforms: ["Android", "iOS"],
     company: "Freelance Client",
     type: "Education",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fthaqalayn_kids.png?alt=media",
+    projectIcon: "/images/projects/thaqalayn_kids/logo.png",
     bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fthaqalayn_kids.png?alt=media",
     storeLinks: [
       {
@@ -871,8 +869,8 @@ export const projects: Project[] = [
     platforms: ["Android"],
     company: "Genetech Solutions",
     type: "Stopwatch",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fmulti_timer.png?alt=media",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fmulti_timer.jpg?alt=media",
+    projectIcon: "/images/projects/multi_timer_stopwatch/logo.png",
+    bannerImage: "/images/projects/multi_timer_stopwatch/banner.jpg",
     storeLinks: [
       {
         platform: "Android",
@@ -882,14 +880,14 @@ export const projects: Project[] = [
     ],
     screenshots: {
       Android: [
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fmct_1.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fmct_2.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fmct_3.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fmct_4.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fmct_5.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fmct_6.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fmct_7.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fmct_8.jpg?alt=media",
+        "/images/projects/multi_timer_stopwatch/mockups/android/01.jpg",
+        "/images/projects/multi_timer_stopwatch/mockups/android/02.jpg",
+        "/images/projects/multi_timer_stopwatch/mockups/android/03.jpg",
+        "/images/projects/multi_timer_stopwatch/mockups/android/04.jpg",
+        "/images/projects/multi_timer_stopwatch/mockups/android/05.jpg",
+        "/images/projects/multi_timer_stopwatch/mockups/android/06.jpg",
+        "/images/projects/multi_timer_stopwatch/mockups/android/07.jpg",
+        "/images/projects/multi_timer_stopwatch/mockups/android/08.jpg",
       ],
     },
     createdDate: "Jan, 2023",
@@ -906,7 +904,7 @@ export const projects: Project[] = [
     company: "Al Musleh Foundation School",
     type: "Education",
     projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Famfs.png?alt=media",
-    bannerImage: "https://lh3.googleusercontent.com/wtA8W-WbkhAzJz6BX0RciTBwQEAQdW3OMi_WM36wev9tWaSCS3Q7v-t3CD6zo3PFU1I",
+    bannerImage: "/images/projects/amfs_online/banner.jpg",
     storeLinks: [
       {
         platform: "Android",
@@ -942,7 +940,7 @@ export const projects: Project[] = [
     tech: ["Kotlin", "XML", "REST APIs", "SqlLite", "Room"],
     platforms: ["Android"],
     company: "Minhasoft",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fmunaf_textile.png?alt=media",
+    projectIcon: "/images/projects/munaf_textile/logo.png",
     bannerImage: "",
     storeLinks: [],
     type: "POS",
@@ -962,8 +960,8 @@ export const projects: Project[] = [
     tech: ["Kotlin", "XML", "REST APIs", "Firebase", "SqlLite", "Room"],
     platforms: ["Android"],
     company: "Minhasoft",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fpocket_pos.png?alt=media",
-    bannerImage: "https://lh3.googleusercontent.com/VsTaZBeR3kuFlyfZJwthqorH4jw4Z0S1kRfHQh6Y4EPu4b9KO2qIIt5fU7g7PW0_GCPN",
+    projectIcon: "/images/projects/mpos/logo.png",
+    bannerImage: "/images/projects/mpos/banner.jpg",
     storeLinks: [
       {
         platform: "Android",
@@ -997,7 +995,7 @@ export const projects: Project[] = [
     tech: ["Kotlin", "XML", "REST APIs", "Firebase", "SqlLite", "Room"],
     platforms: ["Android"],
     company: "Minhasoft",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fprotein_district.png?alt=media",
+    projectIcon: "/images/projects/protein_district/logo.png",
     storeLinks: [
       {
         platform: "Android",
@@ -1059,7 +1057,7 @@ export const projects: Project[] = [
     tech: ["Flutter", "REST APIs", "Firebase", "SqlLite", "Push Notifications"],
     platforms: ["Android"],
     company: "Freelance Client",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Frazpay_wallet.png?alt=media",
+    projectIcon: "/images/projects/razpay/logo.png",
     storeLinks: [],
     github: "https://github.com/zeeshanayaz/razpay-wallet-app?utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
     type: "Digital Wallet",
