@@ -1001,6 +1001,7 @@ export const projects: Project[] = [
     platforms: ["Android"],
     company: "Minhasoft",
     projectIcon: "/images/projects/protein_district/logo.png",
+    bannerImage: "/images/projects/protein_district/banner.jpg",
     storeLinks: [
       {
         platform: "Android",
@@ -1086,7 +1087,7 @@ export const projects: Project[] = [
     platforms: ["Android"],
     company: "Minhasoft",
     projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fsalonat.png?alt=media",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fsalonat_user.png?alt=media",
+    bannerImage: "/images/projects/salonat/banner.jpg",
     storeLinks: [],
     type: "Life Style",
     screenshots: {
@@ -1115,7 +1116,7 @@ export const projects: Project[] = [
     platforms: ["Android"],
     company: "Minhasoft",
     projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fsalonat.png?alt=media",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fbanner%2Fsalonat_beautician.png?alt=media",
+    bannerImage: "/images/projects/salonat/banner.jpg",
     storeLinks: [],
     type: "Life Style",
     screenshots: {
