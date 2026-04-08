@@ -816,7 +816,7 @@ export const projects: Project[] = [
     company: "Freelance Client",
     type: "Booking App",
     projectIcon: "",
-    bannerImage: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_4.jpg?alt=media",
+    bannerImage: "",
     storeLinks: [],
     screenshots: {
       iOS: [

@@ -9,7 +9,15 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Muhammad Zeeshan - Software Developer",
   description: "Mobile App Developer specializing in Flutter, Android, and iOS development",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: [
+      { url: '/favicon/favicon.ico', sizes: 'any' },
+      { url: '/favicon/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: '/favicon/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
