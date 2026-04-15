@@ -1304,6 +1304,12 @@ export const achievements: Achievement[] = [
 
 export const certifications: Certification[] = [
   {
+    name: "Software Design: From Requirements to Release",
+    issuer: "LinkedIn Learning",
+    date: "2026",
+    icon: "Award",
+  },
+  {
     name: "Version Control with Git",
     issuer: "Coursera",
     date: "2023",
