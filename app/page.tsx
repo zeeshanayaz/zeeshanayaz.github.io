@@ -104,8 +104,8 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "services", "experience", "projects", "contact"]
-      const scrollPosition = window.scrollY + 100
+    const sections = ["home", "about", "services", "experience", "portfolio", "contact"]
+    const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -154,7 +154,7 @@ export default function Portfolio() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
-              {["home", "about", "services", "experience", "projects", "contact"].map((item) => (
+              {["home", "about", "services", "experience", "portfolio", "contact"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -186,7 +186,7 @@ export default function Portfolio() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-t border-slate-200/50 dark:border-slate-800/50">
-              {["home", "about", "services", "experience", "projects", "contact"].map((item) => (
+              {["home", "about", "services", "experience", "portfolio", "contact"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -265,7 +265,7 @@ export default function Portfolio() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-bounce">
               <Button
                 size="lg"
-                onClick={() => scrollToSection("projects")}
+                onClick={() => scrollToSection("portfolio")}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 group"
               >
                 View My Work
@@ -549,14 +549,14 @@ export default function Portfolio() {
 
       {/* Projects Section */}
       <section
-        id="projects"
+        id="portfolio"
         className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full text-sm font-medium text-blue-600 dark:text-blue-400 mb-4">
               <Code className="w-4 h-4 mr-2" />
-              Projects
+              Portfolio
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent mb-4">
               Featured Work
