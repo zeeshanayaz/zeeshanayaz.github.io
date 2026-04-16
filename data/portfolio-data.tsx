@@ -113,7 +113,7 @@ export const personalInfo: PersonalInfo = {
   website: "https://zeeshan-ayaz.web.app/",
   linkedin: "https://www.linkedin.com/in/zeeshanayaz/",
   github: "https://github.com/zeeshanayaz",
-  profileImage: "/images/profile.jpeg",
+  profileImage: "/images/Muhammad Zeeshan.jpg",
 }
 
 export const skills: Skill[] = [
