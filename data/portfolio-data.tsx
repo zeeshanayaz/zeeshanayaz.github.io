@@ -174,7 +174,7 @@ export const experiences: Experience[] = [
     duration: "April 2021 - April 2023",
     location: "Pakistan",
     achievements: [
-      "Developed and maintained Android applications using Kotlin/Java and transitioned to Flutter for cross-platform",      "Gained proficiency in Flutter, contributing to cross-platform mobile application development",
+      "Developed and maintained Android applications using Kotlin/Java and transitioned to Flutter for cross-platform", "Gained proficiency in Flutter, contributing to cross-platform mobile application development",
       "Assisted in integrating RESTful APIs and third-party services into mobile apps",
       "Worked collaboratively with the development team to implement new features",
       "Contributed in debugging and troubleshooting to resolve application issues",
@@ -200,7 +200,7 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
-    id: "asma_ul_husna",
+    id: "asma-ul-husna",
     name: "Asma Ul Husna–99Names of Allah",
     description: "Asma Ul Husna is a simple mobile application that presents the 99 names of Allah",
     longDescription: "Asma Ul Husna is a simple and elegant mobile application that presents the 99 beautiful names of Allah along with their meanings. The app is designed to help users learn, remember, and reflect on the divine attributes of Allah in an easy and accessible way.\n\nFeatures\n- View all 99 Names of Allah (Asma Ul Husna)\n- Listen all 99 Names of Allah (Asma Ul Husna)\n- Meanings of each name\n- Clean and simple user interface\n- Lightweight and easy to use",
@@ -236,7 +236,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "dayzee_farmer",
+    id: "dayzee-farmer",
     name: "DayZee Farmer App",
     description: "DayZee enables farmers to order semen and embryos for livestock breeding.",
     longDescription: "DayZee is a comprehensive mobile application designed to streamline the process of ordering semen and embryos for livestock breeding. The app provides a seamless platform for farmers to browse available products, place orders, and manage their breeding programs efficiently.",
@@ -260,7 +260,7 @@ export const projects: Project[] = [
     // },
   },
   {
-    id: "dayzee_vendor",
+    id: "dayzee-vendor",
     name: "DayZee Vendor App",
     description: "DayZee enables farmers to order semen and embryos for livestock breeding.",
     longDescription: "DayZee is a comprehensive mobile application designed to streamline the process of ordering semen and embryos for livestock breeding. The app provides a seamless platform for farmers to browse available products, place orders, and manage their breeding programs efficiently.",
@@ -358,7 +358,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "interviewer_feedback_app",
+    id: "interviewer-feedback-app",
     name: "Interviewer Feedback App",
     description: "Interview Feedback App is a mobile application designed to streamline the post-interview evaluation process.",
     longDescription: "Interview Feedback App is a mobile application designed to streamline the post-interview evaluation process. It enables interviewers to quickly and efficiently submit structured feedback after candidate interviews. The app ensures consistency, saves time, and centralizes feedback collection for HR and hiring teams.",
@@ -429,7 +429,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "hey_smarty",
+    id: "hey-smarty",
     name: "Hey Smarty",
     description: "Your Personal Home Assistant",
     longDescription: "Hey Smarty, your ultimate virtual assistant designed to transform how you manage your home. Whether you’re looking for the best tutors, schools, cable TV, internet services, or the latest smart home devices, Hey Smarty has you covered. Our AI-powered app is tailored to help you discover top-rated products and services that make your home smarter, more comfortable, and cost-effective. With Hey Smarty, you’ll save both time and money while enjoying a seamless experience in creating the perfect living space. Let Hey Smarty guide you to the best choices for a home you’ll love.",
@@ -729,7 +729,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "check_the_reviews",
+    id: "check-the-reviews",
     name: "CheckTheReviews",
     description: "A powerful tool to let people know about Your business by leaving reviews!",
     longDescription: "A powerful tool to let people know about Your business by leaving reviews! The best promotion to any business - good feedback from different real people. Bring new opportunities to Your business with the power of XYZ Reviews! Submit a request for the feedback to your customer by SMS or by generating QR code.",
@@ -839,7 +839,7 @@ export const projects: Project[] = [
     longDescription: "Thaqalayn Kids is an animated story application for children where they can listen to animated videos to build their character and play multiple games.",
     tech: ["Flutter", "Dart", "REST APIs", "Animation", "Games"],
     platforms: ["Android", "iOS"],
-    company: "Freelance Client",
+    company: "Genetech Solutions",
     type: "Education",
     projectIcon: "/images/projects/thaqalayn_kids/logo.png",
     bannerImage: "/images/projects/thaqalayn_kids/banner.png",
