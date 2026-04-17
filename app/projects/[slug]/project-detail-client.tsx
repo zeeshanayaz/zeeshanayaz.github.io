@@ -8,7 +8,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import type { Project } from "@/data/portfolio-data"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { logCustomEvent } from "@/lib/firebase"
 
 interface ProjectDetailClientProps {
   project: Project
@@ -17,6 +18,14 @@ interface ProjectDetailClientProps {
 export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
   const router = useRouter()
   const [selectedPlatform, setSelectedPlatform] = useState<string>(project.platforms[0] || "")
+
+  useEffect(() => {
+    logCustomEvent("project_view", {
+      project_id: project.id,
+      project_name: project.name,
+      project_type: project.type,
+    })
+  }, [project.id, project.name, project.type])
 
   // Get screenshots for selected platform
   const currentScreenshots = project.screenshots
@@ -169,7 +178,19 @@ export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
                       : "bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800"
                     } text-white shadow-lg hover:shadow-xl transition-all duration-300`}
                 >
-                  <Link href={storeLink.url} target="_blank" className="flex items-center gap-2">
+                  <Link
+                    href={storeLink.url}
+                    target="_blank"
+                    className="flex items-center gap-2"
+                    onClick={() => {
+                      logCustomEvent("project_external_link_click", {
+                        project_id: project.id,
+                        project_name: project.name,
+                        link_type: storeLink.store.toLowerCase().replace(" ", "_"),
+                        url: storeLink.url,
+                      })
+                    }}
+                  >
                     {storeLink.store === "Google Play" ? (
                       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
@@ -193,7 +214,19 @@ export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
                   asChild
                   className="bg-gradient-to-r from-slate-500/10 to-slate-600/10 border-slate-500/20 text-slate-600 dark:text-slate-400 hover:bg-slate-500 hover:text-white transition-all duration-300"
                 >
-                  <Link href={project.github} target="_blank" className="flex items-center gap-2">
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    className="flex items-center gap-2"
+                    onClick={() => {
+                      logCustomEvent("project_external_link_click", {
+                        project_id: project.id,
+                        project_name: project.name,
+                        link_type: "github",
+                        url: project.github,
+                      })
+                    }}
+                  >
                     <Github className="h-4 w-4" />
                     GitHub
                   </Link>

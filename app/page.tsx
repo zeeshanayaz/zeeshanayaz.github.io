@@ -55,7 +55,8 @@ import {
   certifications,
   type Project,
 } from "@/data/portfolio-data"
-import {useRouter} from "next/navigation"
+import { useRouter } from "next/navigation"
+import { logCustomEvent } from "@/lib/firebase"
 
 const getSkillIcon = (iconName: string) => {
   const icons: { [key: string]: any } = {
@@ -104,8 +105,8 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-    const sections = ["home", "about", "services", "experience", "portfolio", "contact"]
-    const scrollPosition = window.scrollY + 100
+      const sections = ["home", "about", "services", "experience", "portfolio", "contact"]
+      const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -265,7 +266,10 @@ export default function Portfolio() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-bounce">
               <Button
                 size="lg"
-                onClick={() => scrollToSection("portfolio")}
+                onClick={() => {
+                  scrollToSection("portfolio")
+                  logCustomEvent("cta_view_work_click")
+                }}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 group"
               >
                 View My Work
@@ -292,6 +296,12 @@ export default function Portfolio() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   className={`p-3 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300 text-slate-600 dark:text-slate-300 ${color} hover:scale-110`}
+                  onClick={() => {
+                    logCustomEvent("contact_button_click", {
+                      contact_type: href.startsWith("mailto") ? "mail" : href.includes("linkedin") ? "linkedin" : "github",
+                      url: href
+                    })
+                  }}
                 >
                   <Icon className="h-6 w-6" />
                 </Link>
@@ -572,7 +582,7 @@ export default function Portfolio() {
               Published Applications
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {(featuredProjects.slice(0,6)).map((project, index) => (
+              {(featuredProjects.slice(0, 6)).map((project, index) => (
                 <Card
                   key={index}
                   className="group relative overflow-hidden bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
@@ -612,7 +622,15 @@ export default function Portfolio() {
                         {project.company}
                       </Badge>
                     </div>
-                    <Link href={`/projects/${project.id}`}>
+                    <Link
+                      href={`/projects/${project.id}`}
+                      onClick={() => {
+                        logCustomEvent("project_click", {
+                          project_id: project.id,
+                          project_name: project.name
+                        })
+                      }}
+                    >
 
                       <CardTitle className="text-xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
                       >
@@ -646,7 +664,16 @@ export default function Portfolio() {
                           asChild
                           className="flex-1 mr-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-blue-500/20 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white"
                         >
-                          <Link href={`/projects/${project.id}`}>
+                          <Link
+                            href={`/projects/${project.id}`}
+                            onClick={() => {
+                              logCustomEvent("project_click", {
+                                project_id: project.id,
+                                project_name: project.name,
+                                source: "view_details_button"
+                              })
+                            }}
+                          >
                             <Eye className="h-3 w-3 mr-1" />
                             View Details
                           </Link>
@@ -667,7 +694,19 @@ export default function Portfolio() {
                                 }`}
                               title={`View on ${storeLink.store}`}
                             >
-                              <Link href={storeLink.url} target="_blank">
+                              <Link
+                                href={storeLink.url}
+                                target="_blank"
+                                onClick={() => {
+                                  logCustomEvent("project_external_link_click", {
+                                    project_id: project.id,
+                                    project_name: project.name,
+                                    link_type: storeLink.store.toLowerCase().replace(" ", "_"),
+                                    url: storeLink.url,
+                                    source: "project_card"
+                                  })
+                                }}
+                              >
                                 {storeLink.store === "Google Play" ? (
                                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
@@ -741,7 +780,20 @@ export default function Portfolio() {
                       asChild
                       className="bg-slate-500/10 border-slate-500/20 text-slate-600 dark:text-slate-400 hover:bg-slate-500 hover:text-white"
                     >
-                      <Link href={project.url} target="_blank" className="flex items-center gap-1">
+                      <Link
+                        href={project.url}
+                        target="_blank"
+                        className="flex items-center gap-1"
+                        onClick={() => {
+                          logCustomEvent("project_external_link_click", {
+                            project_id: project.name.toLowerCase().replace(" ", "_"),
+                            project_name: project.name,
+                            link_type: "github",
+                            url: project.url,
+                            source: "open_source_card"
+                          })
+                        }}
+                      >
                         <ExternalLink className="h-3 w-3" />
                         View Project
                       </Link>
@@ -996,7 +1048,17 @@ export default function Portfolio() {
                   asChild
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Link href={`mailto:${personalInfo.email}`}>{personalInfo.email}</Link>
+                  <Link
+                    href={`mailto:${personalInfo.email}`}
+                    onClick={() => {
+                      logCustomEvent("contact_button_click", {
+                        contact_type: "mail",
+                        url: `mailto:${personalInfo.email}`
+                      })
+                    }}
+                  >
+                    {personalInfo.email}
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -1017,7 +1079,17 @@ export default function Portfolio() {
                   asChild
                   className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Link href={`tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`}>{personalInfo.phone}</Link>
+                  <Link
+                    href={`tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`}
+                    onClick={() => {
+                      logCustomEvent("contact_button_click", {
+                        contact_type: "phone",
+                        url: `tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`
+                      })
+                    }}
+                  >
+                    {personalInfo.phone}
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
@@ -1035,6 +1107,12 @@ export default function Portfolio() {
                   href={href}
                   target="_blank"
                   className={`group flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${color} text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}
+                  onClick={() => {
+                    logCustomEvent("contact_button_click", {
+                      contact_type: label.toLowerCase(),
+                      url: href
+                    })
+                  }}
                 >
                   <Icon className="h-5 w-5 group-hover:animate-pulse" />
                   <span className="hidden sm:inline">{label}</span>

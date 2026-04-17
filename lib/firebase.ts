@@ -1,5 +1,5 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAnalytics, isSupported } from "firebase/analytics";
+import { getAnalytics, isSupported, logEvent } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -16,5 +16,20 @@ const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
 // Initialize Analytics (only on client-side)
 const analytics = typeof window !== "undefined" ? isSupported().then((supported) => supported ? getAnalytics(app) : null) : null;
+
+/**
+ * Log a custom event to Firebase Analytics
+ */
+export const logCustomEvent = async (eventName: string, params?: Record<string, any>) => {
+  if (typeof window !== "undefined") {
+    const a = await analytics;
+    if (a) {
+      logEvent(a, eventName, params);
+      if (process.env.NODE_ENV === "development") {
+        console.log(`[Firebase Analytics] Event logged: ${eventName}`, params);
+      }
+    }
+  }
+};
 
 export { app, analytics };
