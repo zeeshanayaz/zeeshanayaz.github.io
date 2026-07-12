@@ -238,8 +238,8 @@ export const projects: Project[] = [
     featured: true,
     stats: {
       downloads: "100+",
-      // rating: 5,
-      // reviews: "10+",
+      rating: 0,
+      reviews: "0",
     },
   },
   {
@@ -316,11 +316,11 @@ export const projects: Project[] = [
     createdDate: "March, 2026",
     // releasedDate: "February, 2026",
     featured: true,
-    // stats: {
-    //   // downloads: "10+",
-    //   // rating: 5,
-    //   // reviews: "10+",
-    // },
+    stats: {
+      downloads: "10+",
+      rating: 0,
+      reviews: "0",
+    },
   },
   {
     id: "hujjah",
@@ -340,11 +340,11 @@ export const projects: Project[] = [
     createdDate: "March, 2026",
     // releasedDate: "February, 2026",
     featured: true,
-    stats: {
-      // downloads: "10+",
-      // rating: 5,
-      // reviews: "10+",
-    },
+    // stats: {
+    //   // downloads: "10+",
+    //   // rating: 5,
+    //   // reviews: "10+",
+    // },
   },
   {
     id: "serpent-tales",
@@ -584,7 +584,7 @@ export const projects: Project[] = [
     createdDate: "Jan, 2024",
     releasedDate: "Mar, 2024",
     stats: {
-      downloads: "50+",
+      downloads: "100+",
       rating: 5,
       reviews: "10+",
     },
@@ -625,11 +625,11 @@ export const projects: Project[] = [
     },
     createdDate: "Jan, 2024",
     releasedDate: "Mar, 2024",
-    stats: {
-      downloads: "5K+",
-      rating: 4.8,
-      reviews: "120+",
-    },
+    // stats: {
+    //   downloads: "5K+",
+    //   rating: 4.8,
+    //   reviews: "120+",
+    // },
     featured: true,
   },
   {
@@ -671,9 +671,9 @@ export const projects: Project[] = [
     createdDate: "Sep, 2023",
     releasedDate: "Nov, 2023",
     stats: {
-      downloads: "10K+",
+      downloads: "100+",
       rating: 4.6,
-      reviews: "250+",
+      reviews: "10+",
     },
     featured: true,
   },
@@ -708,11 +708,11 @@ export const projects: Project[] = [
     },
     createdDate: "Jan, 2024",
     releasedDate: "Mar, 2024",
-    stats: {
-      downloads: "50+",
-      rating: 5,
-      reviews: "10+",
-    },
+    // stats: {
+    //   downloads: "50+",
+    //   rating: 5,
+    //   reviews: "10+",
+    // },
     featured: true,
   },
   {
@@ -807,9 +807,9 @@ export const projects: Project[] = [
     // releasedDate: "February, 2026",
     featured: true,
     stats: {
-      downloads: "100+",
-      // rating: 5,
-      // reviews: "10+",
+      downloads: "1K+",
+      rating: 5,
+      reviews: "100+",
     },
   },
   {
@@ -924,6 +924,11 @@ export const projects: Project[] = [
         "/images/projects/thaqalayn_kids/mockups/ios/12.jpg",
       ],
     },
+    stats: {
+      downloads: "500+",
+      rating: 5,
+      reviews: "100+",
+    },
     createdDate: "Jan, 2023",
     releasedDate: "Mar, 2023",
     featured: true,
@@ -957,6 +962,11 @@ export const projects: Project[] = [
         "/images/projects/multi_timer_stopwatch/mockups/android/07.jpg",
         "/images/projects/multi_timer_stopwatch/mockups/android/08.jpg",
       ],
+    },
+    stats: {
+      downloads: "10K+",
+      rating: 5,
+      reviews: "137+",
     },
     createdDate: "Jan, 2023",
     releasedDate: "Mar, 2023",
@@ -1013,9 +1023,11 @@ export const projects: Project[] = [
     storeLinks: [],
     type: "POS",
     screenshots: {},
-    stats: {
-      downloads: "10+"
-    },
+    // stats: {
+    //   downloads: "1K+",
+    //   rating: 5,
+    //   reviews: "100+",
+    // },
     createdDate: "Oct, 2022",
     releasedDate: "Dec, 2022",
     featured: true,
@@ -1049,7 +1061,9 @@ export const projects: Project[] = [
       ],
     },
     stats: {
-      downloads: "100+"
+      downloads: "100+",
+      rating: 5,
+      reviews: "10+",
     },
     createdDate: "Oct, 2022",
     releasedDate: "Dec, 2022",
@@ -1074,9 +1088,11 @@ export const projects: Project[] = [
     ],
     type: "E-Commerce",
     screenshots: {},
-    stats: {
-      downloads: "100+"
-    },
+    // stats: {
+    //   downloads: "1K+",
+    //   rating: 5,
+    //   reviews: "100+",
+    // },
     createdDate: "Oct, 2022",
     releasedDate: "Dec, 2022",
     featured: true,
@@ -1111,9 +1127,11 @@ export const projects: Project[] = [
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fbranddose_8.jpg?alt=media",
       ],
     },
-    stats: {
-      downloads: "100+"
-    },
+    // stats: {
+    //   downloads: "1K+",
+    //   rating: 5,
+    //   reviews: "100+",
+    // },
     createdDate: "Oct, 2022",
     releasedDate: "Dec, 2022",
     featured: true,
@@ -1149,7 +1167,7 @@ export const projects: Project[] = [
     tech: ["Kotlin", "XML", "REST APIs", "Firebase", "SqlLite", "Room"],
     platforms: ["Android"],
     company: "Minhasoft",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fsalonat.png?alt=media",
+    projectIcon: "/images/projects/salonat/logo.png",
     bannerImage: "/images/projects/salonat/banner.jpg",
     storeLinks: [],
     type: "Life Style",
@@ -1178,7 +1196,7 @@ export const projects: Project[] = [
     tech: ["Kotlin", "XML", "REST APIs", "Firebase", "SqlLite", "Room"],
     platforms: ["Android"],
     company: "Minhasoft",
-    projectIcon: "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/project_thumbnails%2Fsalonat.png?alt=media",
+    projectIcon: "/images/projects/salonat/logo.png",
     bannerImage: "/images/projects/salonat/banner.jpg",
     storeLinks: [],
     type: "Life Style",
