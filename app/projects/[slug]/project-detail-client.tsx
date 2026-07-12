@@ -1,22 +1,50 @@
 "use client"
 
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Github, Calendar, Smartphone, Download, Star, Users, TrendingUp, Award, ChevronRight } from "lucide-react"
-import Image from "next/image"
+import { PhoneMockup } from "@/components/phone-mockup"
+import { AnimatedTechIcon } from "@/components/animated-tech-icon"
+import {
+  Github,
+  Calendar,
+  Smartphone,
+  Download,
+  Star,
+  Users,
+  TrendingUp,
+  Award,
+  ChevronRight,
+  ArrowLeft,
+  Building,
+} from "lucide-react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
 import type { Project } from "@/data/portfolio-data"
-import { useState, useEffect } from "react"
 import { logCustomEvent } from "@/lib/firebase"
 
 interface ProjectDetailClientProps {
   project: Project
 }
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+}
+
 export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
-  const router = useRouter()
   const [selectedPlatform, setSelectedPlatform] = useState<string>(project.platforms[0] || "")
 
   useEffect(() => {
@@ -33,412 +61,379 @@ export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
     : []
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800">
-      {/* Header */}
-      <div className="sticky top-0 z-10 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 py-4 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans relative selection:bg-purple-500/30 selection:text-purple-200 bg-dot-pattern">
+      {/* Background gradients */}
+      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[100px] pointer-events-none z-0" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
+
+      {/* Header / Sub-navigation */}
+      <div className="sticky top-0 z-30 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-900/60 py-4 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="flex items-center">
+          <div className="flex items-center text-xs sm:text-sm">
             <Link
               href="/"
-              className="flex items-center text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
+              className="flex items-center text-zinc-400 hover:text-white transition-colors"
             >
-              <span className="font-medium">Home</span>
+              <span>Home</span>
             </Link>
-            <ChevronRight className="h-4 w-4 mx-2 text-slate-400" />
+            <ChevronRight className="h-4 w-4 mx-2 text-zinc-700" />
             <Link
               href="/projects"
-              className="flex items-center text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
+              className="flex items-center text-zinc-400 hover:text-white transition-colors"
             >
-              <span className="font-medium">Projects</span>
+              <span>Projects</span>
             </Link>
-            <ChevronRight className="h-4 w-4 mx-2 text-slate-400" />
-            <span className="font-medium text-slate-900 dark:text-white truncate max-w-[200px] sm:max-w-xs">
+            <ChevronRight className="h-4 w-4 mx-2 text-zinc-700" />
+            <span className="font-semibold text-white truncate max-w-[150px] sm:max-w-xs">
               {project.name}
             </span>
           </div>
         </div>
       </div>
 
-      <main className="py-12 px-4 sm:px-6 lg:px-8">
+      <main className="py-16 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="mb-8 space-y-6">
-
-            <div className="flex flex-col lg:flex-row lg:items-start gap-8">
-              {/* App Icon */}
-              <div className="relative w-24 h-24 flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-3xl blur-lg opacity-50"></div>
-                <div className="relative w-full h-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl flex items-center justify-center shadow-2xl ">
-                  {project.projectIcon ? (
-                    <img
-                      src={project.projectIcon}
-                      alt={project.name}
-                      className="object-contain rounded-2xl "
-                    />
-                  ) : (
-                    <span className="text-3xl font-bold text-white">{project.name.charAt(0)}</span>
-                  )}
+          
+          {/* Hero Bento Header */}
+          <div className="mb-12">
+            <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
+              
+              {/* App Icon & Title */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
+                <div className="relative w-24 h-24 flex-shrink-0">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-[28px] blur-md opacity-40"></div>
+                  <div className="relative w-full h-full bg-zinc-900 border border-zinc-800 rounded-[28px] overflow-hidden flex items-center justify-center shadow-2xl">
+                    {project.projectIcon ? (
+                      <img
+                        src={project.projectIcon}
+                        alt={project.name}
+                        className="object-contain w-full h-full p-1"
+                      />
+                    ) : (
+                      <span className="text-3xl font-extrabold text-white">{project.name.charAt(0)}</span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Title and Actions */}
-              <div className="flex-1">
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <Badge
-                      variant="secondary"
-                      className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20"
-                    >
+                <div className="space-y-3">
+                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <Badge variant="outline" className="border-zinc-800 text-zinc-400 py-0.5 px-2.5">
                       {project.type}
                     </Badge>
-                    <div className="flex gap-2">
-                      {project.platforms.map((platform) => (
-                        <Badge
-                          key={platform}
-                          variant="outline"
-                          className={`${platform === "Android"
-                            ? "text-green-600 border-green-500/20 bg-green-500/10"
-                            : platform === "iOS" ? "text-blue-600 border-blue-500/20 bg-blue-500/10"
-                              : "text-gray-600 border-gray-500/20 bg-gray-500/10"
-                            }`}
-                        >
-                          {platform}
-                        </Badge>
-                      ))}
-                    </div>
+                    {project.platforms.map((plat) => (
+                      <Badge
+                        key={plat}
+                        variant="secondary"
+                        className={`text-[10px] uppercase tracking-wider py-0.5 px-2.5 border-0 ${
+                          plat === "Android"
+                            ? "bg-green-600/10 border border-green-500/20 text-green-400"
+                            : plat === "iOS" ? "bg-blue-600/10 border border-blue-500/20 text-blue-400"
+                              : "bg-zinc-800 border border-zinc-700 text-zinc-300"
+                        }`}
+                      >
+                        {plat}
+                      </Badge>
+                    ))}
                   </div>
-                  <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-300 bg-clip-text text-transparent mb-3">
+
+                  <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
                     {project.name}
                   </h1>
-                  <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+                  <p className="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-3xl font-normal">
                     {project.description}
                   </p>
                 </div>
-
-
               </div>
 
-            </div>
+              {/* Action Buttons */}
+              <div className="flex flex-wrap justify-center lg:justify-end gap-3 self-center lg:self-start w-full lg:w-auto border-t lg:border-t-0 border-zinc-900 pt-6 lg:pt-0">
+                {project.storeLinks.map((link, index) => (
+                  <Button
+                    key={index}
+                    asChild
+                    className={`px-5 py-5 rounded-2xl font-semibold transition-all duration-300 flex items-center gap-2 border-0 ${
+                      link.store === "Google Play"
+                        ? "bg-gradient-to-r from-green-600 to-emerald-700 text-white hover:from-green-700 hover:to-emerald-800"
+                        : link.store === "App Store" ? "bg-gradient-to-r from-blue-600 to-indigo-700 text-white hover:from-blue-700 hover:to-indigo-850"
+                          : "bg-gradient-to-r from-zinc-800 to-zinc-900 text-white hover:from-zinc-700 hover:to-zinc-850"
+                    } shadow-md`}
+                  >
+                    <Link
+                      href={link.url}
+                      target="_blank"
+                      onClick={() => {
+                        logCustomEvent("project_external_link_click", {
+                          project_id: project.id,
+                          project_name: project.name,
+                          link_type: link.store.toLowerCase().replace(" ", "_"),
+                          url: link.url,
+                        })
+                      }}
+                    >
+                      <AnimatedTechIcon name={link.platform} size={16} />
+                      <span>{link.store}</span>
+                    </Link>
+                  </Button>
+                ))}
 
-            {/* Stats Cards */}
-            {project.stats && (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-lg">
-                  <CardContent className="p-4 text-center">
-                    <div className="flex items-center justify-center mb-2">
-                      <div className="p-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg">
-                        <Download className="h-5 w-5 text-white" />
-                      </div>
-                    </div>
-                    <div className="text-2xl font-bold text-slate-900 dark:text-white">{project.stats.downloads}</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-300">Downloads</div>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-lg">
-                  <CardContent className="p-4 text-center">
-                    <div className="flex items-center justify-center mb-2">
-                      <div className="p-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg">
-                        <Star className="h-5 w-5 text-white" />
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center gap-1">
-                      <span className="text-2xl font-bold text-slate-900 dark:text-white">
-                        {project.stats.rating}
-                      </span>
-                      <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                    </div>
-                    <div className="text-sm text-slate-600 dark:text-slate-300">Rating</div>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-lg">
-                  <CardContent className="p-4 text-center">
-                    <div className="flex items-center justify-center mb-2">
-                      <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
-                        <Users className="h-5 w-5 text-white" />
-                      </div>
-                    </div>
-                    <div className="text-2xl font-bold text-slate-900 dark:text-white">{project.stats.reviews}</div>
-                    <div className="text-sm text-slate-600 dark:text-slate-300">Reviews</div>
-                  </CardContent>
-                </Card>
+                {project.github && (
+                  <Button
+                    variant="outline"
+                    asChild
+                    className="px-5 py-5 rounded-2xl border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-900/50 hover:border-zinc-750 transition-all duration-350 bg-transparent flex items-center gap-2"
+                  >
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      onClick={() => {
+                        logCustomEvent("project_external_link_click", {
+                          project_id: project.id,
+                          project_name: project.name,
+                          link_type: "github",
+                          url: project.github,
+                        })
+                      }}
+                    >
+                      <Github className="h-4.5 w-4.5" />
+                      <span>GitHub</span>
+                    </Link>
+                  </Button>
+                )}
               </div>
-            )}
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-3">
-              {project.storeLinks.map((storeLink, index) => (
-                <Button
-                  key={index}
-                  asChild
-                  className={`${storeLink.store === "Google Play"
-                    ? "bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800"
-                    : storeLink.store === "App Store" ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
-                      : "bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800"
-                    } text-white shadow-lg hover:shadow-xl transition-all duration-300`}
-                >
-                  <Link
-                    href={storeLink.url}
-                    target="_blank"
-                    className="flex items-center gap-2"
-                    onClick={() => {
-                      logCustomEvent("project_external_link_click", {
-                        project_id: project.id,
-                        project_name: project.name,
-                        link_type: storeLink.store.toLowerCase().replace(" ", "_"),
-                        url: storeLink.url,
-                      })
-                    }}
-                  >
-                    {storeLink.store === "Google Play" ? (
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                      </svg>
-                    ) : storeLink.store === "App Store" ? (
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
-                      </svg>
-                    ) : storeLink.store === "Web" ? (
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M9.83824 18.4467C10.0103 18.7692 10.1826 19.0598 10.3473 19.3173C8.59745 18.9238 7.07906 17.9187 6.02838 16.5383C6.72181 16.1478 7.60995 15.743 8.67766 15.4468C8.98112 16.637 9.40924 17.6423 9.83824 18.4467ZM11.1618 17.7408C10.7891 17.0421 10.4156 16.1695 10.1465 15.1356C10.7258 15.0496 11.3442 15 12.0001 15C12.6559 15 13.2743 15.0496 13.8535 15.1355C13.5844 16.1695 13.2109 17.0421 12.8382 17.7408C12.5394 18.3011 12.2417 18.7484 12 19.0757C11.7583 18.7484 11.4606 18.3011 11.1618 17.7408ZM9.75 12C9.75 12.5841 9.7893 13.1385 9.8586 13.6619C10.5269 13.5594 11.2414 13.5 12.0001 13.5C12.7587 13.5 13.4732 13.5593 14.1414 13.6619C14.2107 13.1384 14.25 12.5841 14.25 12C14.25 11.4159 14.2107 10.8616 14.1414 10.3381C13.4732 10.4406 12.7587 10.5 12.0001 10.5C11.2414 10.5 10.5269 10.4406 9.8586 10.3381C9.7893 10.8615 9.75 11.4159 9.75 12ZM8.38688 10.0288C8.29977 10.6478 8.25 11.3054 8.25 12C8.25 12.6946 8.29977 13.3522 8.38688 13.9712C7.11338 14.3131 6.05882 14.7952 5.24324 15.2591C4.76698 14.2736 4.5 13.168 4.5 12C4.5 10.832 4.76698 9.72644 5.24323 8.74088C6.05872 9.20472 7.1133 9.68686 8.38688 10.0288ZM10.1465 8.86445C10.7258 8.95042 11.3442 9 12.0001 9C12.6559 9 13.2743 8.95043 13.8535 8.86447C13.5844 7.83055 13.2109 6.95793 12.8382 6.2592C12.5394 5.69894 12.2417 5.25156 12 4.92432C11.7583 5.25156 11.4606 5.69894 11.1618 6.25918C10.7891 6.95791 10.4156 7.83053 10.1465 8.86445ZM15.6131 10.0289C15.7002 10.6479 15.75 11.3055 15.75 12C15.75 12.6946 15.7002 13.3521 15.6131 13.9711C16.8866 14.3131 17.9412 14.7952 18.7568 15.2591C19.233 14.2735 19.5 13.1679 19.5 12C19.5 10.8321 19.233 9.72647 18.7568 8.74093C17.9413 9.20477 16.8867 9.6869 15.6131 10.0289ZM17.9716 7.46178C17.2781 7.85231 16.39 8.25705 15.3224 8.55328C15.0189 7.36304 14.5908 6.35769 14.1618 5.55332C13.9897 5.23077 13.8174 4.94025 13.6527 4.6827C15.4026 5.07623 16.921 6.08136 17.9716 7.46178ZM8.67765 8.55325C7.61001 8.25701 6.7219 7.85227 6.02839 7.46173C7.07906 6.08134 8.59745 5.07623 10.3472 4.6827C10.1826 4.94025 10.0103 5.23076 9.83823 5.5533C9.40924 6.35767 8.98112 7.36301 8.67765 8.55325ZM15.3224 15.4467C15.0189 16.637 14.5908 17.6423 14.1618 18.4467C13.9897 18.7692 13.8174 19.0598 13.6527 19.3173C15.4026 18.9238 16.921 17.9186 17.9717 16.5382C17.2782 16.1477 16.3901 15.743 15.3224 15.4467ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" />
-                      </svg>
-                    ) : null}
-                    {storeLink.store}
-                  </Link>
-                </Button>
-              ))}
-              {project.github && (
-                <Button
-                  variant="outline"
-                  asChild
-                  className="bg-gradient-to-r from-slate-500/10 to-slate-600/10 border-slate-500/20 text-slate-600 dark:text-slate-400 hover:bg-slate-500 hover:text-white transition-all duration-300"
-                >
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="flex items-center gap-2"
-                    onClick={() => {
-                      logCustomEvent("project_external_link_click", {
-                        project_id: project.id,
-                        project_name: project.name,
-                        link_type: "github",
-                        url: project.github,
-                      })
-                    }}
-                  >
-                    <Github className="h-4 w-4" />
-                    GitHub
-                  </Link>
-                </Button>
-              )}
             </div>
           </div>
 
-          {/* Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8">
-              {/* About the App */}
-              <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-6 flex items-center">
-                    <Award className="w-6 h-6 mr-3 text-blue-500" />
-                    About the App
+          {/* Stats Bar */}
+          {project.stats && (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+              {[
+                { label: "Downloads", icon: Download, val: project.stats.downloads, bg: "from-green-500 to-emerald-600" },
+                { label: "Rating", icon: Star, val: project.stats.rating, extraIcon: true, bg: "from-yellow-500 to-orange-650" },
+                { label: "Reviews", icon: Users, val: project.stats.reviews, bg: "from-purple-500 to-pink-650" },
+              ].map((s, idx) => (
+                <div key={idx} className="glass-card rounded-2xl p-5 flex items-center justify-between border border-zinc-900/50">
+                  <div className="space-y-1">
+                    <p className="text-xs text-zinc-500 uppercase tracking-widest font-semibold">{s.label}</p>
+                    <div className="flex items-center gap-1">
+                      <span className="text-2xl font-extrabold text-white">{s.val}</span>
+                      {s.extraIcon && <Star className="h-4.5 w-4.5 text-yellow-500 fill-current" />}
+                    </div>
+                  </div>
+                  <div className={`p-3 bg-zinc-900 border border-zinc-800 text-white rounded-xl`}>
+                    <s.icon className="h-5 w-5" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Detail Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Left Column: Description & Screenshots */}
+            <div className="lg:col-span-8 space-y-8">
+              
+              {/* Long Description Biography */}
+              <Card className="glass-card border-0 rounded-3xl overflow-hidden">
+                <CardContent className="p-8 space-y-6">
+                  <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+                    <Award className="w-5 h-5 text-blue-400" />
+                    Product Overview
                   </h2>
-                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{project.longDescription.split('\n').map((line, idx) => (
-                    <span key={idx}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}</p>
+                  <div className="text-zinc-300 leading-relaxed font-normal text-sm sm:text-base space-y-4">
+                    {project.longDescription.split('\n').map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
 
               {/* Tech Stack */}
-              <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-6 flex items-center">
-                    <TrendingUp className="w-6 h-6 mr-3 text-purple-500" />
-                    Tech Stack
+              <Card className="glass-card border-0 rounded-3xl overflow-hidden">
+                <CardContent className="p-8 space-y-6">
+                  <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-purple-400" />
+                    Tech Stack & Architecture
                   </h2>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2.5">
                     {project.tech.map((tech, index) => (
-                      <Badge
-                        key={index}
-                        variant="secondary"
-                        className="px-4 py-2 text-sm bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-900/30 dark:hover:to-purple-900/30 transition-all duration-300"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Preview Section */}
-              <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-6 flex items-center">
-                    <Smartphone className="w-6 h-6 mr-3 text-cyan-500" />
-                    Preview
-                  </h2>
-
-                  {/* Platform Selector */}
-                  {project.platforms.length > 1 &&
-                    project.platforms.some(
-                      (platform) =>
-                        project.screenshots &&
-                        Array.isArray(project.screenshots[platform]) &&
-                        project.screenshots[platform].length > 0
-                    ) && (
-                      <div className="flex gap-3 mb-8">
-                        {project.platforms.map((platform) =>
-                          project.screenshots &&
-                            Array.isArray(project.screenshots[platform]) &&
-                            project.screenshots[platform].length > 0 ? (
-                            <Button
-                              key={platform}
-                              variant={selectedPlatform === platform ? "default" : "outline"}
-                              onClick={() => setSelectedPlatform(platform)}
-                              className={`flex items-center gap-2 transition-all duration-300 ${selectedPlatform === platform
-                                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-                                : "bg-white/50 dark:bg-slate-700/50 hover:bg-blue-50 dark:hover:bg-slate-600"
-                                }`}
-                            >
-                              <Smartphone className="h-4 w-4" />
-                              {platform}
-                            </Button>
-                          ) : null
-                        )}
-                      </div>
-                    )}
-
-                  {/* Screenshots Grid */}
-                  {currentScreenshots.length > 0 && (
-                    <div className="overflow-x-auto">
-                      <div className="flex gap-6 pb-2 snap-x snap-mandatory">
-                        {currentScreenshots.map((screenshot, index) => (
-                          <div
-                            key={index}
-                            className="group relative min-w-[180px] md:min-w-[300px] h-[360px] md:h-[600px] rounded-2xl hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl bg-white/80 dark:bg-slate-800/80 snap-center"
-                          >
-                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <Image
-                              src={screenshot || "/placeholder.svg"}
-                              alt={`${project.name} ${selectedPlatform} screenshot ${index + 1}`}
-                              width={300}
-                              height={600}
-                              className="w-full h-full object-contain rounded-xl relative z-10"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Associated Client */}
-              <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Associated Company</h3>
-                  <Badge
-                    variant="outline"
-                    className="text-sm bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-purple-500/20 text-purple-600 dark:text-purple-400"
-                  >
-                    {project.company}
-                  </Badge>
-                </CardContent>
-              </Card>
-
-              {/* Project Timeline */}
-              <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-slate-900 dark:text-white mb-6 flex items-center">
-                    <Calendar className="w-5 h-5 mr-2 text-blue-500" />
-                    Timeline
-                  </h3>
-                  <div className="space-y-4">
-                    {project.createdDate && (
-                      <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-xl p-4 border border-blue-200/50 dark:border-blue-700/50">
-                        <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300 mb-1">
-                          <Calendar className="h-4 w-4" />
-                          <span className="font-medium">Created</span>
-                        </div>
-                        <p className="text-blue-600 dark:text-blue-400 font-semibold">{project.createdDate}</p>
-                      </div>
-                    )}
-
-                    {project.releasedDate && (
-                      <div className="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-xl p-4 border border-green-200/50 dark:border-green-700/50">
-                        <div className="flex items-center gap-2 text-green-700 dark:text-green-300 mb-1">
-                          <Calendar className="h-4 w-4" />
-                          <span className="font-medium">Released</span>
-                        </div>
-                        <p className="text-green-600 dark:text-green-400 font-semibold">{project.releasedDate}</p>
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Project Type */}
-              <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Project Type</h3>
-                  <Badge
-                    variant="outline"
-                    className="text-sm bg-gradient-to-r from-purple-500/10 to-pink-500/10 border-purple-500/20 text-purple-600 dark:text-purple-400"
-                  >
-                    {project.type}
-                  </Badge>
-                </CardContent>
-              </Card>
-
-              {/* Platforms */}
-              <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm border-0 shadow-xl">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-slate-900 dark:text-white mb-4">Platforms</h3>
-                  <div className="space-y-3">
-                    {project.platforms.map((platform, index) => (
                       <div
                         key={index}
-                        className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900/60 border border-zinc-850 hover:border-zinc-750 text-sm text-zinc-300 transition-colors"
                       >
-                        <div
-                          className={`p-2 rounded-lg ${platform === "Android"
-                            ? "bg-gradient-to-r from-green-500 to-green-600"
-                            : platform === "iOS" ? "bg-gradient-to-r from-blue-500 to-blue-600"
-                              : platform === "Web" ? "bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800"
-                                : ""
-                            } text-white`}
-                        >
-                          {platform === "Android" ? (
-                            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                            </svg>
-                          ) : platform === "iOS" ? (
-                            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
-                            </svg>
-                          ) : platform === "Web" ? (
-                            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                              <path fillRule="evenodd" clipRule="evenodd" d="M9.83824 18.4467C10.0103 18.7692 10.1826 19.0598 10.3473 19.3173C8.59745 18.9238 7.07906 17.9187 6.02838 16.5383C6.72181 16.1478 7.60995 15.743 8.67766 15.4468C8.98112 16.637 9.40924 17.6423 9.83824 18.4467ZM11.1618 17.7408C10.7891 17.0421 10.4156 16.1695 10.1465 15.1356C10.7258 15.0496 11.3442 15 12.0001 15C12.6559 15 13.2743 15.0496 13.8535 15.1355C13.5844 16.1695 13.2109 17.0421 12.8382 17.7408C12.5394 18.3011 12.2417 18.7484 12 19.0757C11.7583 18.7484 11.4606 18.3011 11.1618 17.7408ZM9.75 12C9.75 12.5841 9.7893 13.1385 9.8586 13.6619C10.5269 13.5594 11.2414 13.5 12.0001 13.5C12.7587 13.5 13.4732 13.5593 14.1414 13.6619C14.2107 13.1384 14.25 12.5841 14.25 12C14.25 11.4159 14.2107 10.8616 14.1414 10.3381C13.4732 10.4406 12.7587 10.5 12.0001 10.5C11.2414 10.5 10.5269 10.4406 9.8586 10.3381C9.7893 10.8615 9.75 11.4159 9.75 12ZM8.38688 10.0288C8.29977 10.6478 8.25 11.3054 8.25 12C8.25 12.6946 8.29977 13.3522 8.38688 13.9712C7.11338 14.3131 6.05882 14.7952 5.24324 15.2591C4.76698 14.2736 4.5 13.168 4.5 12C4.5 10.832 4.76698 9.72644 5.24323 8.74088C6.05872 9.20472 7.1133 9.68686 8.38688 10.0288ZM10.1465 8.86445C10.7258 8.95042 11.3442 9 12.0001 9C12.6559 9 13.2743 8.95043 13.8535 8.86447C13.5844 7.83055 13.2109 6.95793 12.8382 6.2592C12.5394 5.69894 12.2417 5.25156 12 4.92432C11.7583 5.25156 11.4606 5.69894 11.1618 6.25918C10.7891 6.95791 10.4156 7.83053 10.1465 8.86445ZM15.6131 10.0289C15.7002 10.6479 15.75 11.3055 15.75 12C15.75 12.6946 15.7002 13.3521 15.6131 13.9711C16.8866 14.3131 17.9412 14.7952 18.7568 15.2591C19.233 14.2735 19.5 13.1679 19.5 12C19.5 10.8321 19.233 9.72647 18.7568 8.74093C17.9413 9.20477 16.8867 9.6869 15.6131 10.0289ZM17.9716 7.46178C17.2781 7.85231 16.39 8.25705 15.3224 8.55328C15.0189 7.36304 14.5908 6.35769 14.1618 5.55332C13.9897 5.23077 13.8174 4.94025 13.6527 4.6827C15.4026 5.07623 16.921 6.08136 17.9716 7.46178ZM8.67765 8.55325C7.61001 8.25701 6.7219 7.85227 6.02839 7.46173C7.07906 6.08134 8.59745 5.07623 10.3472 4.6827C10.1826 4.94025 10.0103 5.23076 9.83823 5.5533C9.40924 6.35767 8.98112 7.36301 8.67765 8.55325ZM15.3224 15.4467C15.0189 16.637 14.5908 17.6423 14.1618 18.4467C13.9897 18.7692 13.8174 19.0598 13.6527 19.3173C15.4026 18.9238 16.921 17.9186 17.9717 16.5382C17.2782 16.1477 16.3901 15.743 15.3224 15.4467ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" />
-                            </svg>
-                          ) : null}
-                        </div>
-                        <span className="text-slate-600 dark:text-slate-300 font-medium">{platform}</span>
+                        <AnimatedTechIcon name={tech} size={16} />
+                        <span>{tech}</span>
                       </div>
                     ))}
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Showcase & Screenshots Preview */}
+              {(currentScreenshots.length > 0 || project.screenshots) && (
+                <Card className="glass-card border-0 rounded-3xl overflow-hidden">
+                  <CardContent className="p-8 space-y-8">
+                    <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+                      <Smartphone className="w-5 h-5 text-cyan-400" />
+                      Visual Interface Preview
+                    </h2>
+
+                    {/* Platform switcher (if both platforms exist) */}
+                    {project.platforms.length > 1 &&
+                      project.platforms.some(
+                        (platform) =>
+                          project.screenshots &&
+                          Array.isArray(project.screenshots[platform]) &&
+                          project.screenshots[platform].length > 0
+                      ) && (
+                        <div className="flex gap-2">
+                          {project.platforms.map((platform) =>
+                            project.screenshots &&
+                            Array.isArray(project.screenshots[platform]) &&
+                            project.screenshots[platform].length > 0 ? (
+                              <Button
+                                key={platform}
+                                variant={selectedPlatform === platform ? "default" : "outline"}
+                                onClick={() => setSelectedPlatform(platform)}
+                                className={`flex items-center gap-2 rounded-xl text-xs font-semibold uppercase tracking-wider py-1.5 px-4.5 border transition-all duration-300 ${
+                                  selectedPlatform === platform
+                                    ? "bg-purple-600 border-purple-500 text-white shadow-md shadow-purple-500/10"
+                                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700"
+                                }`}
+                              >
+                                <Smartphone className="h-4 w-4" />
+                                {platform}
+                              </Button>
+                            ) : null
+                          )}
+                        </div>
+                      )}
+
+                    {/* Horizontal scroll layout */}
+                    {currentScreenshots.length > 0 ? (
+                      <div className="overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-zinc-800">
+                        <div className="flex gap-6 snap-x snap-mandatory">
+                          {currentScreenshots.map((screenshot, index) => (
+                            <div
+                              key={index}
+                              className="group relative min-w-[200px] sm:min-w-[260px] h-[400px] sm:h-[520px] rounded-2xl overflow-hidden bg-zinc-900/40 border border-zinc-850 hover:border-zinc-750 snap-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-102 flex-shrink-0"
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-20" />
+                              <Image
+                                src={screenshot}
+                                alt={`${project.name} screen ${index + 1}`}
+                                width={260}
+                                height={520}
+                                className="w-full h-full object-contain select-none"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="text-center py-10 bg-zinc-900/20 border border-zinc-900 rounded-2xl">
+                        <Smartphone className="h-8 w-8 text-zinc-750 mx-auto mb-3" />
+                        <p className="text-zinc-500 text-sm">Preview screens pending store release.</p>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              )}
+
             </div>
+
+            {/* Right Column: Meta Info & Mockup Integration */}
+            <div className="lg:col-span-4 space-y-8">
+              
+              {/* Interactive Phone Mockup Integration */}
+              <div className="glass-card rounded-3xl p-6 sm:p-8 flex flex-col items-center">
+                <h3 className="font-bold text-white mb-6 text-sm uppercase tracking-wider text-zinc-550 w-full text-left">
+                  Device Preview
+                </h3>
+                <PhoneMockup
+                  screenshots={currentScreenshots}
+                  appName={project.name}
+                  platform={selectedPlatform}
+                />
+              </div>
+
+              {/* Client Card */}
+              <div className="glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+                <h3 className="font-bold text-white text-sm uppercase tracking-wider text-zinc-550">
+                  Client & Association
+                </h3>
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-zinc-900 border border-zinc-800 rounded-xl text-purple-400">
+                    <Building className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-zinc-500 uppercase tracking-wider font-semibold">Associated Company</p>
+                    <p className="font-bold text-white">{project.company}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Timeline Info */}
+              {(project.createdDate || project.releasedDate) && (
+                <div className="glass-card rounded-3xl p-6 sm:p-8 space-y-6">
+                  <h3 className="font-bold text-white text-sm uppercase tracking-wider text-zinc-550">
+                    Project Timeline
+                  </h3>
+                  <div className="relative border-l border-zinc-800 pl-4 space-y-6">
+                    {project.createdDate && (
+                      <div className="relative">
+                        <div className="absolute left-[-21px] top-1 w-2.5 h-2.5 rounded-full bg-zinc-950 border border-purple-500 flex items-center justify-center">
+                          <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
+                        </div>
+                        <p className="text-xs text-zinc-500 uppercase tracking-widest font-semibold">Initiated</p>
+                        <p className="font-bold text-white text-sm mt-0.5">{project.createdDate}</p>
+                      </div>
+                    )}
+                    
+                    {project.releasedDate && (
+                      <div className="relative">
+                        <div className="absolute left-[-21px] top-1 w-2.5 h-2.5 rounded-full bg-zinc-950 border border-green-500 flex items-center justify-center">
+                          <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                        </div>
+                        <p className="text-xs text-zinc-500 uppercase tracking-widest font-semibold">Released</p>
+                        <p className="font-bold text-white text-sm mt-0.5">{project.releasedDate}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Associated Platforms list */}
+              <div className="glass-card rounded-3xl p-6 sm:p-8 space-y-4">
+                <h3 className="font-bold text-white text-sm uppercase tracking-wider text-zinc-550">
+                  Platforms Support
+                </h3>
+                <div className="space-y-3">
+                  {project.platforms.map((plat) => (
+                    <div
+                      key={plat}
+                      className="flex items-center gap-3 p-2 rounded-xl bg-zinc-900/40 border border-zinc-850 hover:bg-zinc-900/60 transition-colors"
+                    >
+                      <div
+                        className={`p-2 rounded-lg text-white ${
+                          plat === "Android"
+                            ? "bg-green-600"
+                            : plat === "iOS" ? "bg-blue-600" : "bg-zinc-700"
+                        }`}
+                      >
+                        <AnimatedTechIcon name={plat} size={14} />
+                      </div>
+                      <span className="text-sm font-semibold text-zinc-300">{plat} Support</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
           </div>
+
         </div>
       </main>
     </div>

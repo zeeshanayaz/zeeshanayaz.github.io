@@ -9,6 +9,7 @@ export interface PersonalInfo {
   website: string
   linkedin: string
   github: string
+  stackoverflow: string
   profileImage: string
 }
 
@@ -113,14 +114,16 @@ export const personalInfo: PersonalInfo = {
   website: "https://zeeshan-ayaz.web.app/",
   linkedin: "https://www.linkedin.com/in/zeeshanayaz/",
   github: "https://github.com/zeeshanayaz",
+  stackoverflow: "https://stackoverflow.com/users/6761436/zeeshan-ayaz",
   profileImage: "/images/Muhammad Zeeshan.jpg",
 }
 
 export const skills: Skill[] = [
   { name: "Java/Kotlin", category: "programming", icon: "Code" },
-  { name: "Flutter/Dart", category: "framework", icon: "Code" },
+  { name: "Dart", category: "programming", icon: "Code" },
+  { name: "Flutter", category: "framework", icon: "Code" },
   { name: "React Native", category: "framework", icon: "Code" },
-  { name: "Python", category: "framework", icon: "Code" },
+  { name: "Python", category: "programming", icon: "Code" },
   { name: "SQL", category: "database", icon: "Database" },
   { name: "Firebase", category: "database", icon: "Flame" },
   { name: "Supabase", category: "database", icon: "Zap" },
@@ -136,6 +139,10 @@ export const skills: Skill[] = [
   { name: "App Store Deployment", category: "platform", icon: "Upload" },
   { name: "Jira", category: "tool", icon: "GitBranch" },
   { name: "Basecamp", category: "tool", icon: "GitBranch" },
+  { name: "Claude", category: "tool", icon: "Code" },
+  { name: "Antigravity", category: "tool", icon: "Code" },
+  { name: "Copilot", category: "tool", icon: "Code" },
+  { name: "Cursor", category: "tool", icon: "Code" },
 ]
 
 export const experiences: Experience[] = [
@@ -230,7 +237,7 @@ export const projects: Project[] = [
     releasedDate: "February, 2026",
     featured: true,
     stats: {
-      downloads: "10+",
+      downloads: "100+",
       // rating: 5,
       // reviews: "10+",
     },
