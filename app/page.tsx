@@ -127,14 +127,14 @@ export default function Portfolio() {
     : skills.filter(s => s.category === selectedSkillCategory)
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans relative selection:bg-purple-500/30 selection:text-purple-200 bg-dot-pattern">
+    <div className="min-h-screen bg-background text-foreground font-sans relative selection:bg-purple-500/30 selection:text-purple-200 bg-dot-pattern">
       {/* Background radial glowing circles (Linear-style) */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none z-0" />
       <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-1/3 w-[500px] h-[500px] bg-pink-500/5 rounded-full blur-[130px] pointer-events-none z-0" />
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-zinc-950/80 backdrop-blur-xl z-50 border-b border-zinc-800/40 transition-all duration-300">
+      <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-xl z-50 border-b border-border/60 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -174,7 +174,7 @@ export default function Portfolio() {
               <ThemeToggle />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900/50 border border-zinc-800/50"
+                className="inline-flex items-center justify-center p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-card/50 border border-border/50"
               >
                 {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
@@ -261,7 +261,7 @@ export default function Portfolio() {
                 className="flex flex-wrap gap-2.5 justify-center lg:justify-start"
               >
                 {["Flutter", "Kotlin", "iOS", "Android", "Firebase"].map((tech) => (
-                  <div key={tech} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900/60 border border-zinc-800/80 text-xs text-zinc-300">
+                  <div key={tech} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card/60 border border-border/80 text-xs text-muted-foreground">
                     <AnimatedTechIcon name={tech} size={14} />
                     <span>{tech}</span>
                   </div>
@@ -280,7 +280,7 @@ export default function Portfolio() {
                     scrollToSection("portfolio")
                     logCustomEvent("cta_view_work_click")
                   }}
-                  className="w-full sm:w-auto bg-white text-black hover:bg-zinc-200 px-8 py-6 rounded-full font-semibold shadow-lg shadow-white/5 transition-all duration-300 flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto bg-white text-black dark:bg-zinc-900 dark:text-white hover:bg-zinc-200 dark:hover:bg-zinc-800 px-8 py-6 rounded-full font-semibold shadow-lg shadow-white/5 transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
                   View My Work
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -289,7 +289,7 @@ export default function Portfolio() {
                   size="lg"
                   variant="outline"
                   onClick={() => scrollToSection("contact")}
-                  className="w-full sm:w-auto px-8 py-6 rounded-full border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-900/50 hover:border-zinc-700 transition-all duration-300 font-semibold bg-transparent"
+                  className="w-full sm:w-auto px-8 py-6 rounded-full border-border text-muted-foreground hover:text-foreground hover:bg-card/50 hover:border-border transition-all duration-300 font-semibold bg-transparent"
                 >
                   Let's Connect
                 </Button>

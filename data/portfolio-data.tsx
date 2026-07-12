@@ -243,8 +243,8 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "dayzee-farmer",
-    name: "DayZee Farmer App",
+    id: "dayzee-farms",
+    name: "DayZee Farms",
     description: "DayZee enables farmers to order semen and embryos for livestock breeding.",
     longDescription: "DayZee is a comprehensive mobile application designed to streamline the process of ordering semen and embryos for livestock breeding. The app provides a seamless platform for farmers to browse available products, place orders, and manage their breeding programs efficiently.",
     tech: ["Flutter", "Dart", "Firebase"],
@@ -252,23 +252,39 @@ export const projects: Project[] = [
     company: "Genetech Solutions",
     type: "Farming",
     projectIcon: "/images/projects/dayzee_consumer/logo.png",
-    storeLinks: [],
+    storeLinks: [
+      {
+        platform: "Android",
+        url: "https://play.google.com/store/apps/details?id=com.dayzee.consumer&utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
+        store: "Google Play",
+      }
+    ],
     github: "",
     website: "",
     bannerImage: "/images/projects/dayzee_consumer/banner.png",
-    screenshots: {},
+    screenshots: {
+      Android: [
+        "/images/projects/dayzee_consumer/mockups/android/01.png",
+        "/images/projects/dayzee_consumer/mockups/android/02.png",
+        "/images/projects/dayzee_consumer/mockups/android/03.png",
+        "/images/projects/dayzee_consumer/mockups/android/04.png",
+        "/images/projects/dayzee_consumer/mockups/android/05.png",
+        "/images/projects/dayzee_consumer/mockups/android/06.png",
+        "/images/projects/dayzee_consumer/mockups/android/07.png",
+      ]
+    },
     createdDate: "March, 2026",
-    // releasedDate: "February, 2026",
+    releasedDate: "July, 2026",
     featured: true,
-    // stats: {
-    //   // downloads: "10+",
-    //   // rating: 5,
-    //   // reviews: "10+",
-    // },
+    stats: {
+      downloads: "10+",
+      rating: 0,
+      reviews: "0",
+    },
   },
   {
     id: "dayzee-vendor",
-    name: "DayZee Vendor App",
+    name: "DayZee Farms - Technician",
     description: "DayZee enables farmers to order semen and embryos for livestock breeding.",
     longDescription: "DayZee is a comprehensive mobile application designed to streamline the process of ordering semen and embryos for livestock breeding. The app provides a seamless platform for farmers to browse available products, place orders, and manage their breeding programs efficiently.",
     tech: ["Flutter", "Dart", "Firebase"],
@@ -276,11 +292,27 @@ export const projects: Project[] = [
     company: "Genetech Solutions",
     type: "Farming",
     projectIcon: "/images/projects/dayzee_vendor/logo.png",
-    storeLinks: [],
+    storeLinks: [
+      {
+        platform: "Android",
+        url: "https://play.google.com/store/apps/details?id=com.dayzee.vendor&utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
+        store: "Google Play",
+      }
+    ],
     github: "",
     website: "",
     bannerImage: "/images/projects/dayzee_vendor/banner.png",
-    screenshots: {},
+    screenshots: {
+      Android: [
+        "/images/projects/dayzee_vendor/mockups/android/01.png",
+        "/images/projects/dayzee_vendor/mockups/android/02.png",
+        "/images/projects/dayzee_vendor/mockups/android/03.png",
+        "/images/projects/dayzee_vendor/mockups/android/04.png",
+        "/images/projects/dayzee_vendor/mockups/android/05.png",
+        "/images/projects/dayzee_vendor/mockups/android/06.png",
+        "/images/projects/dayzee_vendor/mockups/android/07.png",
+      ]
+    },
     createdDate: "March, 2026",
     // releasedDate: "February, 2026",
     featured: true,

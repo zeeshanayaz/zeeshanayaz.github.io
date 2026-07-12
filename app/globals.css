@@ -11,6 +11,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --background: 240 10% 98%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -34,6 +35,7 @@
   }
 
   .dark {
+    color-scheme: dark;
     --background: 240 10% 2%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -63,10 +65,94 @@
   body {
     @apply bg-background text-foreground antialiased selection:bg-purple-500/30 selection:text-purple-200;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
 @layer utilities {
+  .bg-zinc-950,
+  .bg-zinc-950\/95,
+  .bg-zinc-950\/80,
+  .bg-zinc-950\/60,
+  .bg-zinc-950\/40 {
+    background-color: hsl(var(--background) / var(--tw-bg-opacity, 1));
+  }
+
+  .bg-zinc-900,
+  .bg-zinc-900\/80,
+  .bg-zinc-900\/60,
+  .bg-zinc-900\/50,
+  .bg-zinc-900\/40,
+  .bg-zinc-900\/20 {
+    background-color: hsl(var(--card) / var(--tw-bg-opacity, 1));
+  }
+
+  .bg-zinc-850,
+  .bg-zinc-850\/70 {
+    background-color: hsl(var(--card) / var(--tw-bg-opacity, 1));
+  }
+
+  .bg-zinc-800,
+  .bg-zinc-800\/60 {
+    background-color: hsl(var(--muted) / var(--tw-bg-opacity, 1));
+  }
+
+  .bg-zinc-700,
+  .bg-zinc-700\/90 {
+    background-color: hsl(var(--secondary) / var(--tw-bg-opacity, 1));
+  }
+
+  .bg-zinc-200 {
+    background-color: hsl(var(--secondary) / var(--tw-bg-opacity, 1));
+  }
+
+  .bg-zinc-100 {
+    background-color: hsl(var(--secondary) / var(--tw-bg-opacity, 1));
+  }
+
+  .text-white,
+  .text-zinc-100,
+  .text-zinc-200,
+  .text-zinc-300,
+  .text-zinc-400,
+  .text-zinc-450,
+  .text-zinc-500,
+  .text-zinc-550,
+  .text-zinc-600,
+  .text-zinc-700 {
+    color: hsl(var(--foreground));
+  }
+
+  .dark .text-white {
+    color: #fff;
+  }
+
+  .text-muted-foreground,
+  .text-zinc-350,
+  .text-zinc-450,
+  .text-zinc-500,
+  .text-zinc-550,
+  .text-zinc-600,
+  .text-zinc-700 {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .border-zinc-800,
+  .border-zinc-900,
+  .border-zinc-900\/60,
+  .border-zinc-850,
+  .border-zinc-700,
+  .border-zinc-750,
+  .border-zinc-800\/50,
+  .border-zinc-800\/60,
+  .border-zinc-800\/80 {
+    border-color: hsl(var(--border) / var(--tw-border-opacity, 1));
+  }
+
+  .ring-zinc-800,
+  .ring-zinc-900 {
+    --tw-ring-color: hsl(var(--border) / var(--tw-ring-opacity, 1));
+  }
   /* Apple/Vercel/Linear Glassmorphism Card */
   .glass-card {
     @apply bg-white/70 dark:bg-black/40 backdrop-blur-md border border-black/5 dark:border-white/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)];
