@@ -79,6 +79,37 @@ export default function Portfolio() {
   const featuredProjects = projects.filter((project) => project.featured)
   const router = useRouter()
 
+  const parseDownloadString = (downloadString?: string) => {
+    if (!downloadString) return 0
+    const normalized = downloadString.trim().replace(/\+/g, "").replace(/,/g, "").toLowerCase()
+    const match = normalized.match(/^([0-9]+(?:\.[0-9]+)?)([km]?)$/)
+
+    if (!match) return 0
+
+    const value = parseFloat(match[1])
+    const suffix = match[2]
+
+    if (suffix === "k") return Math.round(value * 1000)
+    if (suffix === "m") return Math.round(value * 1000000)
+
+    return Math.round(value)
+  }
+
+  const formatDownloadTotal = (count: number) => {
+    if (count >= 1000000) {
+      return `${(count / 1000000).toFixed(1).replace(/\.0$/, "")}M+`
+    }
+
+    if (count >= 1000) {
+      return `${(count / 1000).toFixed(1).replace(/\.0$/, "")}K+`
+    }
+
+    return `${count}+`
+  }
+
+  const totalDownloads = projects.reduce((sum, project) => sum + parseDownloadString(project.stats?.downloads), 0)
+  const totalDownloadsLabel = formatDownloadTotal(totalDownloads)
+
   // Collect some screenshot highlights for the Hero mockup
   const heroScreenshots = [
     "/images/projects/hey_smarty/mockups/android/04.jpg",
@@ -955,9 +986,10 @@ export default function Portfolio() {
             <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">Numbers That Matter</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { val: `${projects.length}+`, title: "Published Projects", desc: "Native & Flutter deployments" },
+              { val: totalDownloadsLabel, title: "Total Downloads", desc: "Cumulative app downloads across projects" },
               { val: `${Array.from(new Set([...projects.map((p) => p.company), ...experiences.map((e) => e.company)])).length}+`, title: "Satisfied Clients", desc: "Corporate companies & organizations" },
               { val: "6+", title: "Years Experience", desc: "Professional software engineering" },
             ].map((stat, idx) => (
