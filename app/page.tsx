@@ -112,6 +112,7 @@ export default function Portfolio() {
 
   // Collect some screenshot highlights for the Hero mockup
   const heroScreenshots = [
+    "/images/projects/portfolio_app/about.png",
     "/images/projects/hey_smarty/mockups/android/04.jpg",
     "/images/projects/padzee/mockups/android/02.png",
     "/images/projects/multi_timer_stopwatch/mockups/android/01.jpg",
