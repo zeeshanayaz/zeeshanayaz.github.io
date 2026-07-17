@@ -1168,12 +1168,12 @@ export const projects: Project[] = [
     platforms: ["Android"],
     company: "Minhasoft",
     projectIcon: "/images/projects/salonat/logo.png",
-    bannerImage: "/images/projects/salonat/banner.jpg",
+    bannerImage: "/images/projects/salonat/banner.png",
     storeLinks: [],
     type: "Life Style",
     screenshots: {
       Android: [
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fsalonat_1.jpg?alt=media",
+        "/images/projects/salonat/mockups/android/01.png",
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fsalonat_2.png?alt=media",
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fsalonat_3.png?alt=media",
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fsalonat_4.png?alt=media",
@@ -1197,12 +1197,12 @@ export const projects: Project[] = [
     platforms: ["Android"],
     company: "Minhasoft",
     projectIcon: "/images/projects/salonat/logo.png",
-    bannerImage: "/images/projects/salonat/banner.jpg",
+    bannerImage: "/images/projects/salonat/banner.png",
     storeLinks: [],
     type: "Life Style",
     screenshots: {
       Android: [
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fsalonat_beautician_1.png?alt=media",
+        "/images/projects/salonat/mockups/android/01.png",
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fsalonat_beautician_2.png?alt=media",
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fsalonat_beautician_3.png?alt=media",
         "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fandroid%2Fsalonat_beautician_4.png?alt=media",
