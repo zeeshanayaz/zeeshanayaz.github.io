@@ -320,6 +320,17 @@ export default function Portfolio() {
                 <Button
                   size="lg"
                   variant="outline"
+                  asChild
+                  className="w-full sm:w-auto px-8 py-6 rounded-full border-border text-muted-foreground hover:text-foreground hover:bg-card/50 hover:border-border transition-all duration-300 font-semibold bg-transparent"
+                >
+                  <Link href="/book" className="flex items-center justify-center gap-2">
+                    <Calendar className="h-4 w-4" />
+                    Schedule a Call
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
                   onClick={() => scrollToSection("contact")}
                   className="w-full sm:w-auto px-8 py-6 rounded-full border-border text-muted-foreground hover:text-foreground hover:bg-card/50 hover:border-border transition-all duration-300 font-semibold bg-transparent"
                 >
@@ -1083,22 +1094,42 @@ export default function Portfolio() {
                   <p className="text-xs sm:text-sm text-zinc-400 mt-1">Give me a call to discuss project details.</p>
                 </div>
               </div>
-              <Button
-                asChild
-                className="w-full bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-850 hover:border-zinc-700 py-6 rounded-2xl font-semibold shadow-inner"
-              >
-                <Link
-                  href={`tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`}
-                  onClick={() => {
-                    logCustomEvent("contact_button_click", {
-                      contact_type: "phone",
-                      url: `tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`,
-                    })
-                  }}
+              <div className="flex flex-col gap-3">
+                <Button
+                  asChild
+                  className="w-full bg-zinc-900 hover:bg-zinc-800 text-white border border-zinc-850 hover:border-zinc-700 py-6 rounded-2xl font-semibold shadow-inner"
                 >
-                  {personalInfo.phone}
-                </Link>
-              </Button>
+                  <Link
+                    href={`tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`}
+                    onClick={() => {
+                      logCustomEvent("contact_button_click", {
+                        contact_type: "phone",
+                        url: `tel:${personalInfo.phone.replace(/[^\d+]/g, "")}`,
+                      })
+                    }}
+                  >
+                    {personalInfo.phone}
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white border border-white/10 py-6 rounded-2xl font-semibold shadow-lg shadow-purple-900/20"
+                >
+                  <Link
+                    href="/book"
+                    onClick={() => {
+                      logCustomEvent("contact_button_click", {
+                        contact_type: "calendly",
+                        url: "/book",
+                      })
+                    }}
+                    className="flex items-center justify-center gap-2"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Book a Meeting
+                  </Link>
+                </Button>
+              </div>
             </motion.div>
 
           </div>

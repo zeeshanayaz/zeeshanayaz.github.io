@@ -4,6 +4,7 @@ export interface PersonalInfo {
   summary: string
   about: string
   email: string
+  calendly: string
   phone: string
   location: string
   website: string
@@ -116,6 +117,7 @@ export const personalInfo: PersonalInfo = {
   github: "https://github.com/zeeshanayaz",
   stackoverflow: "https://stackoverflow.com/users/6761436/zeeshan-ayaz",
   profileImage: "/images/Muhammad Zeeshan.jpg",
+  calendly: "https://calendly.com/zeeshanayaz/30min",
 }
 
 export const skills: Skill[] = [
