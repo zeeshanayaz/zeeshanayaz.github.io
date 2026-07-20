@@ -826,18 +826,25 @@ export const projects: Project[] = [
     storeLinks: [
       {
         platform: "Android",
-        url: "https://play.google.com/store/apps/details?id=com.brokerware.app",
+        url: "https://play.google.com/store/apps/details?id=com.brokerware.app&utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
         store: "Google Play",
       },
       {
         platform: "iOS",
-        url: "https://apps.apple.com/us/app/brokerware-mobile/id1612396311",
+        url: "https://apps.apple.com/us/app/brokerware-mobile/id1612396311?utm_source=muhammad_zeeshan_portfolio&utm_medium=app&utm_campaign=marketing",
         store: "App Store",
       },
     ],
     screenshots: {
       android: [
-
+        "/images/projects/brokerware/mockups/android/01.png",
+        "/images/projects/brokerware/mockups/android/02.png",
+        "/images/projects/brokerware/mockups/android/03.png",
+        "/images/projects/brokerware/mockups/android/04.png",
+        "/images/projects/brokerware/mockups/android/05.png",
+        "/images/projects/brokerware/mockups/android/06.png",
+        "/images/projects/brokerware/mockups/android/07.png",
+        "/images/projects/brokerware/mockups/android/08.png",
       ],
     },
     createdDate: "Mar, 2023",
