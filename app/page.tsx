@@ -174,10 +174,33 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash.replace("#", "")
+      if (!hash) return
+
+      const normalizedHash = decodeURIComponent(hash).trim().toLowerCase()
+      const element =
+        document.getElementById(hash) ||
+        Array.from(document.querySelectorAll<HTMLElement>("[id]")).find(
+          (el) => el.id.toLowerCase() === normalizedHash,
+        )
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+
+    scrollToHash()
+    window.addEventListener("hashchange", scrollToHash)
+    return () => window.removeEventListener("hashchange", scrollToHash)
+  }, [])
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
+      window.history.replaceState(null, "", `#${sectionId}`)
     }
     setIsMenuOpen(false)
   }

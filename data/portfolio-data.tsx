@@ -1464,7 +1464,7 @@ export const testimonials: Testimonial[] = [
     designation: "Founder",
     company: "AutoPostr",
     relationship: "Client",
-    avatar: "/images/testimonials/joseph-udostone.jpg",
+    avatar: "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/84/5a/6d/845a6dd1-f7dd-483a-683d-9b5d7500b471/Placeholder.mill/200x200bb-75.webp",
     testimonial: "The best software developer on Fiverr.",
     featured: false,
     rating: 5,
