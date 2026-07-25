@@ -9,6 +9,14 @@ import { ThemeToggle } from "@/components/theme-toggle"
 import { PhoneMockup } from "@/components/phone-mockup"
 import { AnimatedTechIcon } from "@/components/animated-tech-icon"
 import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import {
   Github,
   Linkedin,
   Mail,
@@ -50,6 +58,7 @@ import {
   achievements,
   services,
   certifications,
+  testimonials,
 } from "@/data/portfolio-data"
 import { useRouter } from "next/navigation"
 import { logCustomEvent } from "@/lib/firebase"
@@ -75,9 +84,30 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [selectedSkillCategory, setSelectedSkillCategory] = useState<string>("all")
+  const [testimonialCarouselApi, setTestimonialCarouselApi] = useState<CarouselApi>()
+  const [expandedTestimonialId, setExpandedTestimonialId] = useState<string | null>(null)
 
   const featuredProjects = projects.filter((project) => project.featured)
   const router = useRouter()
+
+  useEffect(() => {
+    if (!testimonialCarouselApi) return
+
+    const autoplayInterval = window.setInterval(() => {
+      testimonialCarouselApi.scrollNext()
+    }, 5000)
+
+    return () => window.clearInterval(autoplayInterval)
+  }, [testimonialCarouselApi])
+
+  useEffect(() => {
+    if (!testimonialCarouselApi) return
+
+    const resetExpandedTestimonial = () => setExpandedTestimonialId(null)
+    testimonialCarouselApi.on("select", resetExpandedTestimonial)
+
+    return () => testimonialCarouselApi.off("select", resetExpandedTestimonial)
+  }, [testimonialCarouselApi])
 
   const parseDownloadString = (downloadString?: string) => {
     if (!downloadString) return 0
@@ -121,7 +151,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "services", "experience", "portfolio", "contact"]
+      const sections = ["home", "about", "services", "experience", "portfolio", "testimonials", "contact"]
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -183,7 +213,7 @@ export default function Portfolio() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
-              {["home", "about", "services", "experience", "portfolio", "contact"].map((item) => (
+              {["home", "about", "services", "experience", "portfolio", "testimonials", "contact"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -224,7 +254,7 @@ export default function Portfolio() {
               className="md:hidden border-t border-zinc-800/60"
             >
               <div className="px-3 pt-2 pb-3 space-y-1 bg-zinc-950/95 backdrop-blur-xl">
-                {["home", "about", "services", "experience", "portfolio", "contact"].map((item) => (
+                {["home", "about", "services", "experience", "portfolio", "testimonials", "contact"].map((item) => (
                   <button
                     key={item}
                     onClick={() => scrollToSection(item)}
@@ -984,6 +1014,116 @@ export default function Portfolio() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-32 px-4 sm:px-6 lg:px-8 relative z-10 border-t border-zinc-900 bg-zinc-950/40">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20 space-y-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400">
+              <Users className="w-3.5 h-3.5" />
+              Testimonials
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+              Trusted by the People I Work With
+            </h2>
+            <p className="text-zinc-400 max-w-xl mx-auto text-sm sm:text-base">
+              A few words from colleagues and clients about working together
+            </p>
+          </div>
+
+          <Carousel
+            setApi={setTestimonialCarouselApi}
+            opts={{ align: "start", loop: true }}
+            className="mx-auto w-full max-w-6xl"
+          >
+            <CarouselContent className="-ml-6">
+              {testimonials.map((testimonial, index) => {
+                const initials = testimonial.name
+                  .split(" ")
+                  .map((name) => name[0])
+                  .join("")
+                  .slice(0, 2)
+
+                return (
+                  <CarouselItem key={testimonial.id} className="pl-6 md:basis-1/2 lg:basis-1/3">
+                    <motion.article
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.08 }}
+                      className={`glass-card h-full rounded-3xl p-6 sm:p-8 flex flex-col justify-between gap-8 transition-all duration-300 hover:-translate-y-1 ${
+                        testimonial.featured ? "border-glow-blue" : "hover:border-zinc-800"
+                      }`}
+                    >
+                      <div className="space-y-6">
+                        <div className="flex items-center justify-between gap-4">
+                          <div className="relative w-14 h-14 shrink-0 overflow-hidden rounded-2xl border border-blue-500/20 bg-blue-500/10 flex items-center justify-center text-sm font-bold text-blue-400">
+                            <span>{initials}</span>
+                            <Image
+                              src={testimonial.avatar}
+                              alt={`${testimonial.name} avatar`}
+                              fill
+                              sizes="56px"
+                              className="object-cover"
+                              onError={(event) => {
+                                event.currentTarget.style.display = "none"
+                              }}
+                            />
+                          </div>
+                          <div className="flex items-center gap-0.5" aria-label={`${testimonial.rating} out of 5 stars`}>
+                            {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
+                              <Star key={starIndex} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <blockquote
+                            className={`whitespace-pre-line text-sm sm:text-base leading-relaxed text-zinc-300 ${
+                              expandedTestimonialId === testimonial.id ? "" : "line-clamp-6"
+                            }`}
+                          >
+                            &ldquo;{testimonial.testimonial}&rdquo;
+                          </blockquote>
+                          {testimonial.testimonial.length > 260 && (
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setExpandedTestimonialId((currentId) =>
+                                  currentId === testimonial.id ? null : testimonial.id,
+                                )
+                              }
+                              className="mt-3 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                            >
+                              {expandedTestimonialId === testimonial.id ? "Read less" : "Read more"}
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="border-t border-zinc-800/60 pt-5 flex items-end justify-between gap-4">
+                        <div>
+                          <h3 className="font-bold text-white">{testimonial.name}</h3>
+                          <p className="text-xs text-zinc-400 mt-1">{testimonial.designation}</p>
+                          <p className="text-xs text-zinc-500 mt-0.5">{testimonial.company}</p>
+                        </div>
+                        <Badge variant="outline" className="border-blue-500/20 text-blue-400 text-[10px] shrink-0">
+                          {testimonial.relationship}
+                        </Badge>
+                      </div>
+                    </motion.article>
+                  </CarouselItem>
+                )
+              })}
+            </CarouselContent>
+            <div className="mt-8 flex items-center justify-center gap-3">
+              <CarouselPrevious className="static !left-auto !right-auto !top-auto !translate-y-0" />
+              <CarouselNext className="static !left-auto !right-auto !top-auto !translate-y-0" />
+            </div>
+          </Carousel>
         </div>
       </section>
 

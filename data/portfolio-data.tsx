@@ -96,6 +96,18 @@ export interface Certification {
   icon: string
 }
 
+export interface Testimonial {
+  id: string
+  name: string
+  designation: string
+  company: string
+  relationship: string
+  avatar: string
+  testimonial: string
+  featured: boolean
+  rating: number
+}
+
 // Update the Skill interface to include icon
 export interface Skill {
   name: string
@@ -1386,5 +1398,75 @@ export const certifications: Certification[] = [
     issuer: "Self-Certified",
     date: "2022",
     icon: "Award",
+  },
+]
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "faizan-darwesh",
+    name: "Faizan Darwesh",
+    designation: "Software Developer | Junior Project Manager",
+    company: "Genetech Solutions",
+    relationship: "Senior Colleague",
+    avatar: "/images/testimonials/faizan-darwesh.jpg",
+    testimonial:
+      "I highly recommend Zeeshan as a skilled Flutter developer who consistently delivers high-quality, scalable mobile applications.\n\nHe has a strong command of Flutter and Dart, along with a deep understanding of clean architecture and state management.\nHis problem-solving skills and attention to detail make him a reliable and efficient team member.\n\nHe collaborates effectively and communicates clearly, contributing positively to any development team.\n\nI’m confident Zeeshan will be a valuable asset to any organization or project he joins.",
+    featured: true,
+    rating: 5,
+  },
+  {
+    id: "darren-p",
+    name: "Darren P",
+    designation: "",
+    company: "Freelancer Client",
+    relationship: "Client",
+    avatar: "/images/testimonials/darren-p.jpg",
+    testimonial: "The freelancer did exactly what I asked, delivered a crisp, clean design within the parameters specified, and sent the final files very soon after the contest was awarded. Recomended.",
+    featured: true,
+    rating: 5,
+  },
+  {
+    id: "urooj-fatima",
+    name: "Urooj Fatima",
+    designation: "Project Manager",
+    company: "Genetech Solutions",
+    relationship: "Project Manager",
+    avatar: "/images/testimonials/urooj-fatima.jpg",
+    testimonial: "I managed Zeeshan on a project, and he is one of those developers you don't have to worry about. He picks things up quickly, delivers clean work, and doesn't need to be micromanaged, which as a manager, I really appreciated. What stood out though was how receptive he was to any feedback and how he consistently showed up as a team player. I'd recommend him without hesitation. ",
+    featured: true,
+    rating: 5,
+  },
+  {
+    id: "taqi-kirmani",
+    name: "Muhammad Taqi Kirmani",
+    designation: "Principal Software Engineer",
+    company: "Genetech Solutions",
+    relationship: "Senior Colleague",
+    avatar: "/images/testimonials/muhammad-taqi-kirmani.jpg",
+    testimonial: "I had the pleasure of working with Muhammad Zeeshan at Genetech Solutions, where he consistently demonstrated strong technical skills and a great problem-solving mindset. As a Mobile Application Developer, he showed solid understanding of mobile app architecture, clean coding practices, and attention to detail.\n\nZeeshan is highly dedicated, quick to learn, and always open to feedback, which makes him easy to mentor and collaborate with. He actively contributed to multiple projects and handled challenges with a positive and professional attitude.\n\nI would definitely recommend him to any team looking for a reliable and skilled mobile app developer.",
+    featured: true,
+    rating: 5,
+  },
+  {
+    id: "teheeb-fatima",
+    name: "Teheeb Fatima",
+    designation: "Project Manager",
+    company: "Genetech Solutions",
+    relationship: "Project Manager",
+    avatar: "/images/testimonials/teheeb-fatima.jpg",
+    testimonial: "Working with Zeeshan was a positive and smooth experience.\n\nHe is detail-oriented and delivers work that feels complete and well-refined. He communicates effectively and contributes to a collaborative team.\nHe understands project needs well and manages his work in a timely and reliable way.\n\nI’d be happy to recommend him based on my experience working together.",
+    featured: true,
+    rating: 5,
+  },
+  {
+    id: "joseph-udostone",
+    name: "Joseph Udostone",
+    designation: "Founder",
+    company: "AutoPostr",
+    relationship: "Client",
+    avatar: "/images/testimonials/joseph-udostone.jpg",
+    testimonial: "The best software developer on Fiverr.",
+    featured: false,
+    rating: 5,
   },
 ]
