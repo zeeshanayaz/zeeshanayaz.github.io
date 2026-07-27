@@ -124,7 +124,7 @@ export const personalInfo: PersonalInfo = {
   email: "zeeshanayaz1@gmail.com",
   phone: "(+92) 312 2309493",
   location: "Karachi, Pakistan",
-  website: "https://zeeshan-ayaz.web.app/",
+  website: "https://zeeshanayaz.github.io/",
   linkedin: "https://www.linkedin.com/in/zeeshanayaz/",
   github: "https://github.com/zeeshanayaz",
   stackoverflow: "https://stackoverflow.com/users/6761436/zeeshan-ayaz",

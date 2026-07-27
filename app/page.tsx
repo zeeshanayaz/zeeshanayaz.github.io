@@ -318,15 +318,15 @@ export default function Portfolio() {
                 </div>
 
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none text-white">
-                  Crafting Premium <br className="hidden sm:inline" />
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Mobile Experiences
+                  <span className="block">Muhammad Zeeshan</span>
+                  <span className="mt-3 block text-2xl sm:text-3xl lg:text-4xl font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    {personalInfo.title}
                   </span>
+                  {/* <span className="mt-4 block text-xl sm:text-2xl lg:text-3xl font-medium bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Flutter, Android, iOS & React Native Expert
+                  </span> */}
                 </h1>
                 
-                <h2 className="text-xl sm:text-2xl text-zinc-300 font-semibold tracking-wide">
-                  {personalInfo.title}
-                </h2>
               </motion.div>
 
               <motion.p
