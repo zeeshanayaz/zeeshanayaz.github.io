@@ -11,6 +11,9 @@ export interface PersonalInfo {
   linkedin: string
   github: string
   stackoverflow: string
+  fiverr: string
+  freelancer: string
+  upwork: string
   profileImage: string
 }
 
@@ -128,8 +131,11 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://www.linkedin.com/in/zeeshanayaz/",
   github: "https://github.com/zeeshanayaz",
   stackoverflow: "https://stackoverflow.com/users/6761436/zeeshan-ayaz",
-  profileImage: "/images/Muhammad Zeeshan.jpg",
+  profileImage: "/images/profile.jpg",
   calendly: "https://calendly.com/zeeshanayaz/30min",
+  fiverr: "https://www.fiverr.com/zeeshanayaz1",
+  freelancer: "https://www.freelancer.com/u/zeeshanayaz1",
+  upwork: "https://www.upwork.com/freelancers/~011a4b77e14b069d3b",
 }
 
 export const skills: Skill[] = [
@@ -850,7 +856,7 @@ export const projects: Project[] = [
       },
     ],
     screenshots: {
-      android: [
+      Android: [
         "/images/projects/brokerware/mockups/android/01.png",
         "/images/projects/brokerware/mockups/android/02.png",
         "/images/projects/brokerware/mockups/android/03.png",
@@ -880,14 +886,23 @@ export const projects: Project[] = [
     storeLinks: [],
     screenshots: {
       iOS: [
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_1.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_2.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_3.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_4.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_5.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_6.jpg?alt=media",
-        "https://firebasestorage.googleapis.com/v0/b/zeeshan-ayaz.appspot.com/o/mockups%2Fios%2Felectra_7.jpg?alt=media",
+        "/images/projects/electra/mockups/ios/01.jpg",
+        "/images/projects/electra/mockups/ios/02.jpg",
+        "/images/projects/electra/mockups/ios/03.jpg",
+        "/images/projects/electra/mockups/ios/04.jpg",
+        "/images/projects/electra/mockups/ios/05.jpg",
+        "/images/projects/electra/mockups/ios/06.jpg",
+        "/images/projects/electra/mockups/ios/07.jpg",
       ],
+      Android: [
+        "/images/projects/electra/mockups/android/01.jpg",
+        "/images/projects/electra/mockups/android/02.jpg",
+        "/images/projects/electra/mockups/android/03.jpg",
+        "/images/projects/electra/mockups/android/04.jpg",
+        "/images/projects/electra/mockups/android/05.jpg",
+        "/images/projects/electra/mockups/android/06.jpg",
+        "/images/projects/electra/mockups/android/07.jpg",
+      ]
     },
     createdDate: "Oct, 2024",
     featured: true,

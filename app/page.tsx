@@ -23,6 +23,10 @@ import {
   Phone,
   MapPin,
   ExternalLink,
+  Globe,
+  Briefcase,
+  DollarSign,
+  Layers,
   Download,
   Star,
   Calendar,
@@ -402,6 +406,9 @@ export default function Portfolio() {
                   { href: `mailto:${personalInfo.email}`, icon: Mail, label: "Email" },
                   { href: personalInfo.linkedin, icon: Linkedin, label: "LinkedIn" },
                   { href: personalInfo.github, icon: Github, label: "GitHub" },
+                  { href: personalInfo.stackoverflow, icon: Layers, label: "StackOverflow" },
+                  { href: personalInfo.upwork, icon: Briefcase, label: "Upwork" },
+                  { href: personalInfo.fiverr, icon: DollarSign, label: "Fiverr" },
                 ].map(({ href, icon: Icon, label }) => (
                   <Link
                     key={label}
