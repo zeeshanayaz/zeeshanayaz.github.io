@@ -369,7 +369,7 @@ export default function Portfolio() {
                     scrollToSection("portfolio")
                     logCustomEvent("cta_view_work_click")
                   }}
-                  className="w-full sm:w-auto bg-white text-black dark:bg-zinc-900 dark:text-white hover:bg-zinc-200 dark:hover:bg-zinc-800 px-8 py-6 rounded-full font-semibold shadow-lg shadow-white/5 transition-all duration-300 flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto bg-white text-black dark:bg-zinc-900 dark:text-white hover:bg-zinc-200 dark:hover:bg-zinc-800 px-8 py-6 rounded-full font-semibold shadow-lg shadow-white/5 transition-all duration-300 flex items-center justify-center gap-2 group animate-bounce [animation-duration:3s]"
                 >
                   View My Work
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
