@@ -167,9 +167,22 @@ export const skills: Skill[] = [
 
 export const experiences: Experience[] = [
   {
+    company: "Al Musleh Foundation School",
+    position: "Digital Development & IT Lead (Part-Time)",
+    duration: "May 2026 - Present",
+    location: "Pakistan",
+    achievements: [
+      "Leading development of the school’s website and mobile app",
+      "Managing social media/digital platforms",
+      "Handling IT-related operations",
+      "Supporting digital transformation",
+      "Working with administration and management on technology initiatives",
+    ],
+  },
+  {
     company: "Genetech Solutions",
     position: "Software Developer (Tier III)",
-    duration: "October 2023 - Present",
+    duration: "October 2023 - April 2026",
     location: "Pakistan",
     achievements: [
       "Led development and release of 10+ mobile applications on Flutter and Kotlin across Android and iOS, owning each from architecture through Play Store / App Store launch",
