@@ -91,7 +91,12 @@ export default function Portfolio() {
   const [testimonialCarouselApi, setTestimonialCarouselApi] = useState<CarouselApi>()
   const [expandedTestimonialId, setExpandedTestimonialId] = useState<string | null>(null)
 
-  const featuredProjects = projects.filter((project) => project.featured)
+  const featuredProjects = [...projects].sort((a, b) => {
+    if (a.featured === b.featured) {
+      return a.name.localeCompare(b.name)
+    }
+    return a.featured ? -1 : 1
+  })
   const router = useRouter()
 
   useEffect(() => {

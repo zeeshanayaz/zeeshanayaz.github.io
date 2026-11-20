@@ -713,7 +713,7 @@ export const projects: Project[] = [
     type: "Clipboard, Online Notepad",
     company: "Personal Project",
     projectIcon: "/images/projects/write/logo.png",
-    bannerImage: "/images/projects/write/banner.png",
+    bannerImage: "/images/projects/write/banner.jpg",
     storeLinks: [
       {
         platform: "web",
@@ -723,13 +723,13 @@ export const projects: Project[] = [
     ],
     screenshots: {
       Android: [
-        "/images/projects/write/mockups/android/01.png",
-        "/images/projects/write/mockups/android/02.png",
-        "/images/projects/write/mockups/android/03.png",
-        "/images/projects/write/mockups/android/04.png",
-        "/images/projects/write/mockups/android/05.png",
-        "/images/projects/write/mockups/android/06.png",
-        "/images/projects/write/mockups/android/07.png",
+        "/images/projects/write/mockups/android/01_organize.jpg",
+        "/images/projects/write/mockups/android/02_write.jpg",
+        "/images/projects/write/mockups/android/03_share.jpg",
+        "/images/projects/write/mockups/android/04_read.jpg",
+        "/images/projects/write/mockups/android/05_polish.jpg",
+        "/images/projects/write/mockups/android/06_export.jpg",
+        "/images/projects/write/mockups/android/07_dark.jpg",
       ],
     },
     createdDate: "Jan, 2024",
@@ -1260,6 +1260,63 @@ export const projects: Project[] = [
     createdDate: "2020",
     featured: true,
   },
+  {
+    id: "amfs",
+    name: "Al Musleh Foundation School (AMFS)",
+    description: "Designed, developed, deployed, and currently manage the official school website.",
+    longDescription: "Complete website design and development. Responsive UI for desktop, tablet, and mobile. Next.js, Tailwind CSS, Supabase, and Firebase Hosting. SEO configuration, metadata, sitemap, and robots.txt. Production deployment with a custom domain. Ongoing website maintenance and management.",
+    tech: ["Next.js", "Tailwind CSS", "Supabase", "Firebase Hosting", "SEO"],
+    platforms: ["Web"],
+    type: "Production Website",
+    company: "Al Musleh Foundation School",
+    storeLinks: [
+      {
+        platform: "Web",
+        url: "https://amfs.edu.pk",
+        store: "Web",
+      },
+    ],
+    website: "https://amfs.edu.pk",
+    featured: true,
+  },
+  {
+    id: "baqir-ai",
+    name: "Baqir AI",
+    description: "A lightweight AI-powered application that allows users to chat with PDF documents using retrieval-augmented generation (RAG).",
+    longDescription: "PDF-based question answering. RAG-based document retrieval and response generation. MVP designed and developed by me.",
+    tech: ["AI", "RAG", "LLMs"],
+    platforms: ["Web"],
+    type: "AI Web Application / MVP",
+    company: "Personal Project",
+    storeLinks: [
+      {
+        platform: "Web",
+        url: "https://baqir.ai",
+        store: "Web",
+      },
+    ],
+    website: "https://baqir.ai",
+    featured: true,
+  },
+  {
+    id: "ai-image-search",
+    name: "AI Image Search",
+    description: "An AI-powered image search tool that lets users find images from a collection using a natural-language, one-line prompt.",
+    longDescription: "Natural-language image search. Semantic search across an image collection. AI-powered discovery based on user descriptions. MVP developed by me.",
+    tech: ["AI", "Semantic Search"],
+    platforms: ["Web"],
+    type: "AI Web Application / MVP",
+    company: "Personal Project",
+    storeLinks: [
+      {
+        platform: "Web",
+        url: "https://ai-image-search.vercel.app",
+        store: "Web",
+      },
+    ],
+    website: "https://ai-image-search.vercel.app",
+    featured: true,
+  }
 ]
 
 export const openSourceProjects: OpenSourceProject[] = [

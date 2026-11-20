@@ -42,8 +42,49 @@ export default function ProjectsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedType, setSelectedType] = useState<string | null>(null)
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects.filter(p => p.featured))
+  const [categoryFilter, setCategoryFilter] = useState<"all" | "mobile" | "web">("all")
+  
+  const sortedProjects = [...projects].sort((a, b) => {
+    if (a.featured === b.featured) {
+      return a.name.localeCompare(b.name)
+    }
+    return a.featured ? -1 : 1
+  })
+  
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>(sortedProjects)
   const [filteredOpenSource, setFilteredOpenSource] = useState(openSourceProjects)
+
+  // Sync category filter with URL hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "")
+      if (hash === "web" || hash === "mobile") {
+        setCategoryFilter(hash)
+      } else {
+        setCategoryFilter("all")
+      }
+    }
+
+    // Run on initial mount
+    handleHashChange()
+
+    // Listen for hash changes and popstate
+    window.addEventListener("hashchange", handleHashChange)
+    window.addEventListener("popstate", handleHashChange)
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange)
+      window.removeEventListener("popstate", handleHashChange)
+    }
+  }, [])
+
+  const handleCategoryChange = (category: "all" | "mobile" | "web") => {
+    setCategoryFilter(category)
+    if (category === "all") {
+      window.history.pushState(null, "", window.location.pathname)
+    } else {
+      window.history.pushState(null, "", `#${category}`)
+    }
+  }
 
   // Get unique project types and platforms for filters
   const projectTypes = Array.from(new Set(projects.map(project => project.type)))
@@ -51,29 +92,34 @@ export default function ProjectsPage() {
 
   // Filter projects based on search term and selected filters
   useEffect(() => {
-    let result = projects.filter(project => project.featured)
+    let result = [...sortedProjects]
     
+    if (categoryFilter === "mobile") {
+      result = result.filter(project => project.platforms.some(p => p === "Android" || p === "iOS"))
+    } else if (categoryFilter === "web") {
+      result = result.filter(project => project.platforms.some(p => p.toLowerCase() === "web"))
+    }
+
     if (searchTerm) {
       const term = searchTerm.toLowerCase()
       result = result.filter(project =>
-        project.featured && 
-        (project.name.toLowerCase().includes(term) || 
-         project.description.toLowerCase().includes(term) ||
-         project.company.toLowerCase().includes(term) ||
-         project.tech.some(tech => tech.toLowerCase().includes(term)))
+        project.name.toLowerCase().includes(term) || 
+        project.description.toLowerCase().includes(term) ||
+        project.company.toLowerCase().includes(term) ||
+        project.tech.some(tech => tech.toLowerCase().includes(term))
       )
     }
     
     if (selectedType) {
-      result = result.filter(project => project.featured && project.type === selectedType)
+      result = result.filter(project => project.type === selectedType)
     }
     
     if (selectedPlatform) {
-      result = result.filter(project => project.featured && project.platforms.includes(selectedPlatform))
+      result = result.filter(project => project.platforms.includes(selectedPlatform))
     }
     
     setFilteredProjects(result)
-  }, [searchTerm, selectedType, selectedPlatform])
+  }, [searchTerm, selectedType, selectedPlatform, categoryFilter])
 
   // Filter open source projects based on search term
   useEffect(() => {
@@ -94,6 +140,7 @@ export default function ProjectsPage() {
     setSearchTerm("")
     setSelectedType(null)
     setSelectedPlatform(null)
+    handleCategoryChange("all")
   }
 
   return (
@@ -187,26 +234,62 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto">
           
           <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <p className="text-sm text-zinc-400">
-                Showing <span className="font-semibold text-white">{filteredProjects.length}</span> of <span className="font-semibold text-white">{projects.length}</span> flagship projects
-              </p>
-              {(selectedType || selectedPlatform) && (
-                <div className="flex flex-wrap gap-1.5 mt-3">
-                  {selectedType && (
-                    <Badge variant="secondary" className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-[10px] flex items-center gap-1.5 uppercase tracking-wider py-1 px-2.5">
-                      Type: {selectedType}
-                      <X className="h-3 w-3 cursor-pointer hover:text-white" onClick={() => setSelectedType(null)} />
-                    </Badge>
-                  )}
-                  {selectedPlatform && (
-                    <Badge variant="secondary" className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-[10px] flex items-center gap-1.5 uppercase tracking-wider py-1 px-2.5">
-                      Platform: {selectedPlatform}
-                      <X className="h-3 w-3 cursor-pointer hover:text-white" onClick={() => setSelectedPlatform(null)} />
-                    </Badge>
-                  )}
-                </div>
-              )}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
+              <div>
+                <p className="text-sm text-zinc-400">
+                  Showing <span className="font-semibold text-white">{filteredProjects.length}</span> of <span className="font-semibold text-white">{projects.length}</span> flagship projects
+                </p>
+                {(selectedType || selectedPlatform || categoryFilter !== "all") && (
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {categoryFilter !== "all" && (
+                      <Badge variant="secondary" className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-[10px] flex items-center gap-1.5 uppercase tracking-wider py-1 px-2.5">
+                        Category: {categoryFilter}
+                        <X className="h-3 w-3 cursor-pointer hover:text-white" onClick={() => handleCategoryChange("all")} />
+                      </Badge>
+                    )}
+                    {selectedType && (
+                      <Badge variant="secondary" className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-[10px] flex items-center gap-1.5 uppercase tracking-wider py-1 px-2.5">
+                        Type: {selectedType}
+                        <X className="h-3 w-3 cursor-pointer hover:text-white" onClick={() => setSelectedType(null)} />
+                      </Badge>
+                    )}
+                    {selectedPlatform && (
+                      <Badge variant="secondary" className="bg-zinc-900 border border-zinc-800 text-zinc-300 text-[10px] flex items-center gap-1.5 uppercase tracking-wider py-1 px-2.5">
+                        Platform: {selectedPlatform}
+                        <X className="h-3 w-3 cursor-pointer hover:text-white" onClick={() => setSelectedPlatform(null)} />
+                      </Badge>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Category Tabs */}
+              <div className="flex bg-zinc-900/60 p-1 rounded-xl border border-zinc-800 w-fit">
+                <button
+                  onClick={() => handleCategoryChange("all")}
+                  className={`px-4 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+                    categoryFilter === "all" ? "bg-zinc-800 text-white" : "text-zinc-400 hover:text-zinc-200"
+                  }`}
+                >
+                  All
+                </button>
+                <button
+                  onClick={() => handleCategoryChange("mobile")}
+                  className={`px-4 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+                    categoryFilter === "mobile" ? "bg-zinc-800 text-white" : "text-zinc-400 hover:text-zinc-200"
+                  }`}
+                >
+                  Mobile
+                </button>
+                <button
+                  onClick={() => handleCategoryChange("web")}
+                  className={`px-4 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+                    categoryFilter === "web" ? "bg-zinc-800 text-white" : "text-zinc-400 hover:text-zinc-200"
+                  }`}
+                >
+                  Web
+                </button>
+              </div>
             </div>
           </div>
 
